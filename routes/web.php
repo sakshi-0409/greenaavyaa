@@ -18,14 +18,26 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/page', function () {
+    return view('welcome');
+})->name('page');
+
+Route::get('/', function () {
+    return view('welcome');
+})->name('profile');
+
 Route::get('/billing', [adminController::class,'billing']);
-Route::get('/admin-dashboard', [adminController::class,'admin_dashboard']);
-Route::get('/admin-profile', [adminController::class,'admin_profile']);
-Route::get('/rtl', [adminController::class,'rtl']);
-Route::get('/sign-in', [adminController::class,'sign_in']);
-Route::get('/sign-up', [adminController::class,'sign_up']);
-Route::get('/tables', [adminController::class,'tables']);
-Route::get('/user-management', [adminController::class,'user_management']);
+Route::get('/home', [adminController::class,'admin_dashboard'])->name('home');
+Route::get('/admin-profile', [adminController::class,'admin_profile'])->name('profile');
+Route::get('/rtl', [adminController::class,'rtl'])->name('rtl');
+Route::get('/sign-in', [adminController::class,'sign_in'])->name('sign-in-static');
+Route::get('/sign-up', [adminController::class,'sign_up'])->name('sign-up-static');
+Route::get('/tables', [adminController::class,'tables'])->name('page', ['page' => 'tables']);
+Route::get('/user-management', [adminController::class,'user_management'])->name('page', ['page' => 'user-management']);
+Route::get('/user-profile', [adminController::class,'user_management'])->name('profile-static');
+Route::get('/virtual-reality', [adminController::class,'user_management'])->name('virtual-reality');
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
