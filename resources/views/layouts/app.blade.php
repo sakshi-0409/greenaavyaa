@@ -5,9 +5,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <link rel="icon" type="image/png" href="/images/logo-dark.png">
     <title>
-        Argon Dashboard
+       Greenaavyaa -CRM
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -24,7 +24,11 @@
 <body class="{{ $class ?? '' }}">
 
     @guest
+    @include('layouts.navbars.auth.sidenav')
+    <main class="main-content border-radius-lg">
         @yield('content')
+    </main>
+@include('components.fixed-plugin')
     @endguest
 
     @auth
