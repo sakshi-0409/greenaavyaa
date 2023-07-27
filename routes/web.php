@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\adminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/billing', function () {
-    return view('pages/billing');
-});
+Route::get('/billing', [adminController::class,'billing']);
+Route::get('/admin-dashboard', [adminController::class,'admin_dashboard']);
+Route::get('/admin-profile', [adminController::class,'admin_profile']);
+Route::get('/rtl', [adminController::class,'rtl']);
+Route::get('/sign-in', [adminController::class,'sign_in']);
+Route::get('/sign-up', [adminController::class,'sign_up']);
+Route::get('/tables', [adminController::class,'tables']);
+Route::get('/user-management', [adminController::class,'user_management']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
