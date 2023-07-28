@@ -27,6 +27,9 @@ class adminController extends Controller
     public function properties(){
         return view('pages/properties');
     }
+    public function createproperty(){
+        return view('pages/createproperty');
+    }
     public function contacts(){
         return view('pages/contacts');
     }
