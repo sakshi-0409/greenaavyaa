@@ -33,7 +33,7 @@ Route::get('/rtl', [adminController::class,'rtl'])->name('rtl');
 Route::get('/sign-in', [adminController::class,'sign_in'])->name('sign-in-static');
 Route::get('/sign-up', [adminController::class,'sign_up'])->name('sign-up-static');
 Route::get('/properties', [adminController::class,'properties'])->name('properties');
-Route::get('/user-management', [adminController::class,'user_management'])->name('page', ['page' => 'user-management']);
+Route::get('/contacts', [adminController::class,'contacts'])->name('contacts');
 Route::get('/user-profile', [adminController::class,'user_management'])->name('profile-static');
 Route::get('/virtual-reality', [adminController::class,'user_management'])->name('virtual-reality');
 

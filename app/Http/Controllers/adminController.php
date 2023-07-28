@@ -27,8 +27,8 @@ class adminController extends Controller
     public function properties(){
         return view('pages/properties');
     }
-    public function user_management(){
-        return view('pages/user-management');
+    public function contacts(){
+        return view('pages/contacts');
     }
 
 }
