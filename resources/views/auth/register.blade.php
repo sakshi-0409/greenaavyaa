@@ -82,7 +82,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="{{ route('register.perform') }}">
+                            <form method="POST" action="{{ url('register') }}">
                                 @csrf
                                 <div class="flex flex-col mb-3">
                                     <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Name" value="{{ old('username') }}" >
@@ -95,6 +95,10 @@
                                 <div class="flex flex-col mb-3">
                                     <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password">
                                     @error('password') <p class='text-danger text-xs pt-1'> {{ $message }} </p> @enderror
+                                </div>
+                                <div class="flex flex-col mb-3">
+                                    <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password" aria-label="ConfirmPassword">
+                                    @error('password_confirmation') <p class='text-danger text-xs pt-1'> {{ $message }} </p> @enderror
                                 </div>
                                 <div class="form-check form-check-info text-start">
                                     <input class="form-check-input" type="checkbox" name="terms" id="flexCheckDefault" >

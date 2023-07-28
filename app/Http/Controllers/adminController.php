@@ -24,8 +24,8 @@ class adminController extends Controller
     public function sign_up(){
         return view('pages/sign-up-static');
     }
-    public function tables(){
-        return view('pages/tables');
+    public function properties(){
+        return view('pages/properties');
     }
     public function user_management(){
         return view('pages/user-management');

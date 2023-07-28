@@ -4,7 +4,7 @@
 <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent mt-4">
     <div class="container">
         <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="{{ route('home') }}">
-            Argon Dashboard 2 Laravel
+           Sign Up in Greenaavyaa
         </a>
         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
             data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
@@ -17,19 +17,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center me-2 active" aria-current="page"
-                        href="{{ route('home') }}">
-                        <i class="fa fa-chart-pie opacity-6  me-1"></i>
-                        Dashboard
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link me-2" href="{{ route('profile-static') }}">
-                        <i class="fa fa-user opacity-6  me-1"></i>
-                        Profile
-                    </a>
-                </li>
+                
                 <li class="nav-item">
                     <a class="nav-link me-2" href="{{ route('sign-up-static') }}">
                         <i class="fas fa-user-circle opacity-6  me-1"></i>
@@ -43,12 +31,7 @@
                     </a>
                 </li>
             </ul>
-            <ul class="navbar-nav d-lg-block d-none">
-                <li class="nav-item">
-                    <a href="https://www.creative-tim.com/product/argon-dashboard-laravel" targte="_blank"
-                        class="btn btn-sm mb-0 me-1 bg-gradient-light">Free Download</a>
-                </li>
-            </ul>
+            
         </div>
     </div>
 </nav>
@@ -61,8 +44,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-5 text-center mx-auto">
                     <h1 class="text-white mb-2 mt-5">Welcome!</h1>
-                    <p class="text-lead text-white">Use these awesome forms to login or create new account in your
-                        project for free.</p>
+                    <p class="text-lead text-white">Join Us to get Real Estates at good location or sale properties at good rates. </p>
                 </div>
             </div>
         </div>
@@ -133,7 +115,8 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form role="form">
+                        <form role="form" action="{{url('register')}}" method="POST">
+                            @csrf
                             <div class="mb-3">
                                 <input type="text" class="form-control" placeholder="Name" aria-label="Name">
                             </div>
@@ -143,6 +126,10 @@
                             <div class="mb-3">
                                 <input type="password" class="form-control" placeholder="Password"
                                     aria-label="Password">
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" placeholder="Repeat Password"
+                                    aria-label="confirmPassword">
                             </div>
                             <div class="form-check form-check-info text-start">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
@@ -154,9 +141,9 @@
                             <div class="text-center">
                                 <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button>
                             </div>
+                        </form>
                             <p class="text-sm mt-3 mb-0">Already have an account? <a href="javascript:;"
                                     class="text-dark font-weight-bolder">Sign in</a></p>
-                        </form>
                     </div>
                 </div>
             </div>

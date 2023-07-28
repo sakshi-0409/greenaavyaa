@@ -28,11 +28,11 @@ Route::get('/', function () {
 
 Route::get('/billing', [adminController::class,'billing']);
 Route::get('/home', [adminController::class,'admin_dashboard'])->name('home');
-Route::get('/admin-profile', [adminController::class,'admin_profile'])->name('profile');
+Route::get('/admin-profile', [adminController::class,'admin_profile'])->name('adminprofile');
 Route::get('/rtl', [adminController::class,'rtl'])->name('rtl');
 Route::get('/sign-in', [adminController::class,'sign_in'])->name('sign-in-static');
 Route::get('/sign-up', [adminController::class,'sign_up'])->name('sign-up-static');
-Route::get('/tables', [adminController::class,'tables'])->name('page', ['page' => 'tables']);
+Route::get('/properties', [adminController::class,'properties'])->name('properties');
 Route::get('/user-management', [adminController::class,'user_management'])->name('page', ['page' => 'user-management']);
 Route::get('/user-profile', [adminController::class,'user_management'])->name('profile-static');
 Route::get('/virtual-reality', [adminController::class,'user_management'])->name('virtual-reality');
