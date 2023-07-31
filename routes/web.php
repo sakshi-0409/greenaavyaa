@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\leadController;
 use App\Http\Controllers\propertyController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,9 @@ Route::post('/create-property', [propertyController::class,'create_property'])->
 Route::get('/contacts', [adminController::class,'contacts'])->name('contacts');
 Route::get('/user-profile', [adminController::class,'user_management'])->name('profile-static');
 Route::get('/virtual-reality', [adminController::class,'user_management'])->name('virtual-reality');
+Route::get('/leads', [adminController::class,'leads'])->name('leads');
+Route::get('/createlead', [adminController::class,'createlead'])->name('createlead');
+Route::post('/create-lead', [leadController::class,'create_lead'])->name('create-lead');
 
 
 

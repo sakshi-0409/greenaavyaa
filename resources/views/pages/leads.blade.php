@@ -17,57 +17,57 @@
                                 <thead>
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Property id</th>
+                                            Lead id</th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Lead Source</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Created on</th>
+                                            Name</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            For</th>
+                                            Mobile</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                           Type</th>
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Title</th>
+                                            Lead For</th>
                                            
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Owner Name</th>
+                                            Priority</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $properties = App\Models\Properties::all() ?>
-                                    @foreach ($properties as $property)
+                                    <?php $leads = App\Models\Leads::all() ?>
+                                    @foreach ($leads as $lead)
                                         
                                     <tr>
                                         
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{$property->property_id}}</p>
+                                            <p class="text-xs font-weight-bold mb-0">{{$lead->lead_id}}</p>
+                                        </td>
+                                       
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0">{{$lead->source}}</p>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{$property->property_date}}</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{$property->for}}</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{$property->property_type}}</p>
+                                            <p class="text-xs font-weight-bold mb-0">{{$lead->name}}</p>
                                         </td>
                                         
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{$property->title}}</p>
+                                            <p class="text-xs font-weight-bold mb-0">{{$lead->mobile_no}}</p>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{$property->owner_name}}</p>
+                                            <p class="text-xs font-weight-bold mb-0">{{$lead->leadfor}}</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0">{{$lead->priority}}</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0">{{$lead->status}}</p>
                                         </td>
                                         
-                                    
-                                    <td class="align-middle text-center text-sm">
-                                        <span class="badge badge-sm bg-gradient-success">{{$property->availability}}</span>
-                                    </td>
                                 </tr>
                                 
                                 @endforeach

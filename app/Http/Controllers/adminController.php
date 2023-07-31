@@ -30,6 +30,12 @@ class adminController extends Controller
     public function createproperty(){
         return view('pages/createproperty');
     }
+    public function leads(){
+        return view('pages/leads');
+    }
+    public function createlead(){
+        return view('pages/create-lead');
+    }
     public function contacts(){
         return view('pages/contacts');
     }

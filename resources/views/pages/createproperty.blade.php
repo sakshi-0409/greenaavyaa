@@ -4,6 +4,7 @@
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Tables'])
     <div class="container">
+    <a href="{{url('properties')}}">List All Properties</a>
     <form id="form" enctype="multipart/form-data" class="row g-3">
       @csrf
         <div class="col-md-3">
@@ -19,7 +20,7 @@
             <select name="propertyby" id="propertyby" class="form-select" aria-label="Default select example">
                 <option selected>Open this select menu</option>
                 <option value="agent">Agent</option>
-                <option value="brocker">Broker</option>
+                <option value="broker">Broker</option>
                 <option value="owner">Owner</option>
                 <option value="others">Others</option>
               </select>
