@@ -207,7 +207,7 @@
         </div>
         <div class="col-md-3">
           <label for="email" class="form-label">Email</label>
-          <input name="owneremail" type="email" placeholder="Email" class="form-control" id="email">
+          <input name="owneremail" type="email" placeholder="Email" class="form-control" id="owneremail">
         </div>
         <div class="col-md-3">
           <label for="ownermobnumber" class="form-label">Mobile No.</label>
@@ -223,15 +223,15 @@
         </div>
         <div class="col-md-3">
           <label for="email" class="form-label">Broker/Agent Email</label>
-          <input name="brokeremail" type="email" placeholder="Broker/Agent Email" class="form-control" id="email">
+          <input name="brokeremail" type="email" placeholder="Broker/Agent Email" class="form-control" id="brokeremail">
         </div>
         <div class="col-md-3">
           <label for="ownermobnumber" class="form-label">Broker/Agent Mob No.</label>
-          <input name="brokernumber" type="text" placeholder="Broker/Agent Mobile No." class="form-control" id="ownermobnumber">
+          <input name="brokernumber" type="text" placeholder="Broker/Agent Mobile No." class="form-control" id="brokermobnumber">
         </div>
         <div class="col-md-3">
           <label for="ownerwpnumber" class="form-label">Broker/Agent Whatsapp No.</label>
-          <input name="brokerwhatsapp" type="text" placeholder="Broker/Agent Wp No." class="form-control" id="ownerwpnumber">
+          <input name="brokerwhatsapp" type="text" placeholder="Broker/Agent Wp No." class="form-control" id="brokerwpnumber">
         </div>
         <div class="col-md-3">
           <label for="country" class="form-label">Country</label>
@@ -268,7 +268,7 @@
         </div>
         <div class="col-md-3">
           <label for="inputZip" class="form-label">Zip</label>
-          <input name="zip" type="text" class="form-control" id="inputZip">
+          <input name="zip" type="text" class="form-control" placeholder="Zip" id="Zip">
         </div>
         <div class="col-md-6">
           <label for="address" class="form-label">Address</label>
@@ -337,7 +337,39 @@
                     processData: false,
                     success: function(response) {
                         // Handle the success response
-                       alert('created');
+                             
+                          $('#propertyid').val('');
+                          $('#propertydate').val('');
+                          $('#propertyby').val('');
+                          $('#propertyfor').val('');
+                          $('#propertytype').val('');
+                          $('#priority').val('');
+                          $('#status').val('');
+                          $('#financial').val('');
+                          $('#propertytitle').val('');
+                          $('#propertydocuments').val('');
+                          $('#age').val('');
+                          $('#availability').val('');
+                          $('#propertyprice').val('');
+                          $('#negotiableprice').val('');
+                          $('#propertysize').val('');
+                          $('#direction').val('');
+                          $('#ownername').val('');
+                          $('#owneremail').val('');
+                          $('#ownermobnumber').val('');
+                          $('#ownerwpnumber').val('');
+                          $('#brokername').val('');
+                          $('#brokeremail').val('');
+                          $('#brokermobnumber').val('');
+                          $('#brokerwpnumber').val('');
+                          $('#country').val('');
+                          $('#State').val('');
+                          $('#city').val('');
+                          $('#Zip').val('');
+                          $('#address').val('');
+                          $('#location').val('');
+                          $('#remark').val('');
+                          $('#images').val('');
                     },
                     error: function(xhr) {
                         // Handle the error response
