@@ -4,36 +4,21 @@
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Tables'])
     <div class="container">
-    <a href="{{url('leads')}}">List All Leads</a>
+    <a href="{{url('brokerss')}}">List All Brokers</a>
     <form id="form" enctype="multipart/form-data" class="row g-3">
       @csrf
         <div class="col-md-3">
-          <label for="leadid" class="form-label">Lead Id</label>
-          <input name="leadid" type="text" class="form-control" placeholder="#####" id="leadid">
+          <label for="brokerid" class="form-label">Broker Id</label>
+          <input name="brokerid" type="text" class="form-control" placeholder="#####" id="brokerid">
         </div>
         <div class="col-md-3">
-          <label for="date" class="form-label">Lead Date</label>
+          <label for="date" class="form-label">Joining Date</label>
           <input name="date" type="date" class="form-control" id="date">
         </div>
+     
         <div class="col-3">
-          <label for="leadsource" class="form-label">Lead Source</label>
-            <select name="leadsource" id="leadsource" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="Social Media">Social Media</option>
-                <option value="Digital Marketing">Digital Marketing</option>
-                <option value="Networking">Networking</option>
-                <option value="Website">Website</option>
-                <option value="Email">Email</option>
-                <option value="SMS">SMS</option>
-                <option value="Whatsapp">Whatsapp</option>
-                <option value="Campaign">Campaign</option>
-                <option value="Fairs">Fairs</option>
-                <option value="others">Others</option>
-              </select>
-        </div>
-        <div class="col-3">
-          <label for="leadby" class="form-label">Lead By</label>
-            <select name="leadby" id="leadby" class="form-select" aria-label="Default select example">
+          <label for="workas" class="form-label">Work As A</label>
+            <select name="workas" id="workas" class="form-select" aria-label="Default select example">
                 <option selected>Open this select menu</option>
                 <option value="Broker">Broker</option>
                 <option value="Dealer">Dealer</option>
@@ -47,64 +32,37 @@
               </select>
         </div>
         <div class="col-3">
-          <label for="leadfor" class="form-label">Lead For</label>
-            <select name="leadfor" id="leadfor" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="houses">Buy</option>
-                <option value="duplexes">Sale</option>
-                <option value="triplexes">Rent</option>
-              </select>
-        </div>
-        <div class="col-3">
-            <label for="leadtype" class="form-label">Lead Type</label>
-              <select name="leadtype" id="leadtype" class="form-select" aria-label="Default select example">
-                  <option selected>Open this select menu</option>
-                  <option value="Plot">Plot</option>
-                  <option value="House">House</option>
-                  <option value="Land">Land</option>
-                  <option value="Raw House">Raw House</option>
-                  <option value="Bunglow">Bunglow</option>
-                  <option value="Commercial">Commercial</option>
-                  <option value="Office">Office</option>
-                  <option value="Agriculture">Agriculture</option>
-                  <option value="Villas">Villas</option>
-                  <option value="Others">Others</option>
-                </select>
-          </div>
-          <div class="col-3">
-            <label for="priority" class="form-label">Priority</label>
-              <select name="priority" id="priority" class="form-select" aria-label="Default select example">
-                  <option selected>Open this select menu</option>
-                  <option value="low">Low</option>
-                  <option value="normal">Normal</option>
-                  <option value="medium">Medium</option>
-                  <option value="high">High</option>
-                </select>
-          </div>
-
-        <div class="col-3">
             <label for="status" class="form-label">Status</label>
-              <select name="status" id="status" class="form-select" aria-label="Default select example">
-                  <option selected>Open this select menu</option>
-                  <option value="Open">Open</option>
-                  <option value="Rejected">Rejected</option>
-                  <option value="Inprocess">Inprocess</option>
-                  <option value="Executed">Executed</option>
-                  <option value="Awaited">Awaited</option>
-                  <option value="Onhold">Onhold</option>
-                  <option value="Cancelled">Cancelled</option>
-                  <option value="Completed">Completed</option>
-                </select>
-          </div>
-
+            <div>
+                
+                <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="active" aria-label="...">
+                <label for="status" class="form-label">Active</label>
+                <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="inactive" aria-label="...">
+                <label for="status" class="form-label">Inactive</label>
+              </div>
+        </div>
+        
           <div class="col-md-6">
-            <label for="companyname" class="form-label">Company Name (If Any)</label>
-            <input name="companyname" type="text" class="form-control" placeholder="Company Name" id="companyname">
-          </div>
-          <div class="col-md-6">
-            <label for="name" class="form-label">Person Name</label>
+            <label for="name" class="form-label"> Name</label>
             <input name="name" type="text" class="form-control" placeholder="Name" id="name">
           </div>
+          <div class="col-3">
+            <label for="status" class="form-label">Gender</label>
+            <div>
+                
+                <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="male" aria-label="...">
+                <label for="status" class="form-label">Male</label>
+                <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="female" aria-label="...">
+                <label for="status" class="form-label">Female</label>
+                <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="others" aria-label="...">
+                <label for="status" class="form-label">Others</label>
+              </div>
+        </div>
+        <div class="col-md-3">
+          <label for="dob" class="form-label">Date Of Birth</label>
+          <input name="dob" type="date" class="form-control" id="dob">
+        </div>
+     
           <div class="col-md-6">
             <label for="email" class="form-label">Email</label>
             <input name="email" type="email" placeholder="Email" class="form-control" id="email">
@@ -162,9 +120,22 @@
           <label for="address" class="form-label">Address</label>
           <input name="address" type="text" class="form-control" placeholder="Property Address" id="address">
         </div>
-        <div class="col-md-6">
-          <label for="location" class="form-label">Location</label>
-          <input name="location" type="text" class="form-control" placeholder="Property Location" id="location">
+        <div class="col-md-3">
+          <label for="city" class="form-label">Identity Type</label>
+          <select name="city" id="city" class="form-select">
+            <option selected>Choose...</option>
+            <option>Pan Card</option>
+            <option>Adhar Card</option>
+            <option>Voter Id</option>
+            <option>Passport</option>
+            <option>Bank Passbook</option>
+            <option>Driving License</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label for="identity" class="form-label">Identity Upload</label>
+          <input name="identity" type="file" class="form-control" placeholder="Property Address" id="identity">
         </div>
         <div class="col-md-12">
           <label for="remark">Remark</label>

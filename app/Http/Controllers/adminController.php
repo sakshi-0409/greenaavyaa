@@ -36,6 +36,12 @@ class adminController extends Controller
     public function createlead(){
         return view('pages/create-lead');
     }
+    public function brokers(){
+        return view('pages/brokers');
+    }
+    public function createbroker(){
+        return view('pages/create-broker');
+    }
     public function contacts(){
         return view('pages/contacts');
     }

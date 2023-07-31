@@ -43,6 +43,9 @@ Route::get('/virtual-reality', [adminController::class,'user_management'])->name
 Route::get('/leads', [adminController::class,'leads'])->name('leads');
 Route::get('/createlead', [adminController::class,'createlead'])->name('createlead');
 Route::post('/create-lead', [leadController::class,'create_lead'])->name('create-lead');
+Route::get('/brokers', [adminController::class,'brokers'])->name('brokers');
+Route::get('/createbroker', [adminController::class,'createbroker'])->name('createbroker');
+Route::post('/createbroker', [adminController::class,'createbroker'])->name('createbroker');
 
 
 
