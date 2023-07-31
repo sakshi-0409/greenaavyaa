@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\propertyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,7 @@ Route::get('/sign-in', [adminController::class,'sign_in'])->name('sign-in-static
 Route::get('/sign-up', [adminController::class,'sign_up'])->name('sign-up-static');
 Route::get('/properties', [adminController::class,'properties'])->name('properties');
 Route::get('/createproperty', [adminController::class,'createproperty'])->name('createproperty');
+Route::post('/create-property', [propertyController::class,'create_property'])->name('create-property');
 Route::get('/contacts', [adminController::class,'contacts'])->name('contacts');
 Route::get('/user-profile', [adminController::class,'user_management'])->name('profile-static');
 Route::get('/virtual-reality', [adminController::class,'user_management'])->name('virtual-reality');

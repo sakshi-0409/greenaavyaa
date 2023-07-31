@@ -4,28 +4,29 @@
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Tables'])
     <div class="container">
-    <form class="row g-3">
+    <form id="form" enctype="multipart/form-data" class="row g-3">
+      @csrf
         <div class="col-md-3">
           <label for="propertyid" class="form-label">Property Id</label>
-          <input type="text" class="form-control" id="propertyid">
+          <input name="propertyid" type="text" class="form-control" placeholder="#####" id="propertyid">
         </div>
         <div class="col-md-3">
           <label for="propertydate" class="form-label">Property Date</label>
-          <input type="date" class="form-control" id="propertydate">
+          <input name="propertydate" type="date" class="form-control" id="propertydate">
         </div>
         <div class="col-3">
           <label for="propertyby" class="form-label">Property By</label>
-            <select id="propertyby" class="form-select" aria-label="Default select example">
+            <select name="propertyby" id="propertyby" class="form-select" aria-label="Default select example">
                 <option selected>Open this select menu</option>
                 <option value="agent">Agent</option>
-                <option value="brocker">Brocker</option>
+                <option value="brocker">Broker</option>
                 <option value="owner">Owner</option>
                 <option value="others">Others</option>
               </select>
         </div>
         <div class="col-3">
           <label for="propertyfor" class="form-label">Property For</label>
-            <select id="propertyfor" class="form-select" aria-label="Default select example">
+            <select name="propertyfor" id="propertyfor" class="form-select" aria-label="Default select example">
                 <option selected>Open this select menu</option>
                 <option value="buy">Buy</option>
                 <option value="sale">Sale</option>
@@ -35,7 +36,7 @@
         </div>
         <div class="col-3">
           <label for="propertytype" class="form-label">Property Type</label>
-            <select id="propertytype" class="form-select" aria-label="Default select example">
+            <select name="propertytype" id="propertytype" class="form-select" aria-label="Default select example">
                 <option selected>Open this select menu</option>
                 <optgroup label="Residential">
                 <option value="houses">Houses</option>
@@ -80,7 +81,7 @@
         </div>
         <div class="col-3">
             <label for="priority" class="form-label">Priority</label>
-              <select id="priority" class="form-select" aria-label="Default select example">
+              <select name="priority" id="priority" class="form-select" aria-label="Default select example">
                   <option selected>Open this select menu</option>
                   <option value="low">Low</option>
                   <option value="normal">Normal</option>
@@ -90,7 +91,7 @@
           </div>
         <div class="col-3">
             <label for="status" class="form-label">Status</label>
-              <select id="status" class="form-select" aria-label="Default select example">
+              <select name="status" id="status" class="form-select" aria-label="Default select example">
                   <option selected>Open this select menu</option>
                   <option value="Open">Open</option>
                   <option value="Rejected">Rejected</option>
@@ -104,7 +105,7 @@
           </div>
         <div class="col-3">
             <label for="financial" class="form-label">Financial</label>
-              <select id="financial" class="form-select" aria-label="Default select example">
+              <select name="financial" id="financial" class="form-select" aria-label="Default select example">
                   <option selected>Open this select menu</option>
                   <option value="Financed">Financed</option>
                   <option value="Freehold">Freehold</option>
@@ -113,11 +114,11 @@
           </div>
           <div class="col-md-3">
             <label for="propertytitle" class="form-label">Property Title</label>
-            <input type="text" class="form-control" placeholder="Property Title" id="propertytitle">
+            <input name="propertytitle" type="text" class="form-control" placeholder="Property Title" id="propertytitle">
           </div>
           <div class="col-3">
             <label for="propertydocuments" class="form-label">Property Documents</label>
-              <select id="propertydocuments" class="form-select" aria-label="Default select example">
+              <select name="documents" id="propertydocuments" class="form-select" aria-label="Default select example">
                   <option selected>Open this select menu</option>
                   <option value="Registry">Registry</option>
                   <option value="Notary">Notary</option>
@@ -127,8 +128,8 @@
                 </select>
           </div>
           <div class="col-3">
-            <label for="propertydocuments" class="form-label">Age Of Property</label>
-              <select id="propertydocuments" class="form-select" aria-label="Default select example">
+            <label for="age" class="form-label">Age Of Property</label>
+              <select name="age" id="age" class="form-select" aria-label="Default select example">
                   <option selected>Open this select menu</option>
                   <option value="Registry">New</option>
                   <option value="0 Year">0 Year</option>
@@ -157,7 +158,7 @@
           </div>
           <div class="col-3">
             <label for="availability" class="form-label">Availability</label>
-              <select id="availability" class="form-select" aria-label="Default select example">
+              <select name="availability" id="availability" class="form-select" aria-label="Default select example">
                   <option selected>Open this select menu</option>
                   <option value="Availabile">Availabile</option>
                   <option value="Not Availabile">Not Availabile</option>
@@ -165,46 +166,187 @@
           </div>
         <div class="col-3">
           <label for="propertyprice" class="form-label">Property Price(Demanded Price)</label>
-          <input type="number" class="form-control" id="propertyprice" placeholder="000000">
+          <input name="demandedprice" type="number" class="form-control" id="propertyprice" placeholder="000000">
         </div>
         <div class="col-3">
           <label for="negotiableprice" class="form-label">Negotiable Price(Final Price)</label>
-          <input type="number" class="form-control" id="negotiableprice" placeholder="000000">
+          <input name="finalprice" type="number" class="form-control" id="negotiableprice" placeholder="000000">
         </div>
-       
+    <div class="col-auto">
+      <label class="form-label" for="propertysize">Property Size</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <button class="decrease btn_new" >-</button>
+          <button class="quantity">1</button>
+          <button class="increase btn_new">+</button>
+        </div>
+        <select name="propertysize" id="propertysize" class="form-select mx-1" aria-label="Default select example">
+          <option selected>Select</option>
+          <option value="Meter">Meter</option>
+          <option value="Square Meter">Square Meter</option>
+          <option value="Square Feet">Square Feet</option>
+          <option value="Bigha">Bigha</option>
+          <option value="Acres">Acres</option>
+          <option value="Others">Others</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-3">
+      <label for="direction" class="form-label">Property Direction</label>
+        <select name="direction" id="direction" class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="North">North</option>
+            <option value="South">South</option>
+            <option value="East">East</option>
+            <option value="West">West</option>
+          </select>
+    </div>
         <div class="col-md-3">
-          <label for="inputCity" class="form-label">City</label>
-          <input type="text" class="form-control" id="inputCity">
+          <label for="ownername" class="form-label">Owner Name</label>
+          <input name="ownername" type="text" class="form-control" placeholder="Property Owner Name" id="ownername">
         </div>
         <div class="col-md-3">
-          <label for="inputState" class="form-label">State</label>
-          <select id="inputState" class="form-select">
+          <label for="email" class="form-label">Email</label>
+          <input name="owneremail" type="email" placeholder="Email" class="form-control" id="email">
+        </div>
+        <div class="col-md-3">
+          <label for="ownermobnumber" class="form-label">Mobile No.</label>
+          <input name="ownermobile" type="text" placeholder="Property Owner Mobile No." class="form-control" id="ownermobnumber">
+        </div>
+        <div class="col-md-3">
+          <label for="ownerwpnumber" class="form-label">Whatsapp No.</label>
+          <input name="ownerwhatsapp" type="text" placeholder="Property Owner Wp No." class="form-control" id="ownerwpnumber">
+        </div>
+        <div class="col-md-3">
+          <label for="brokername" class="form-label">Broker/Agent Name</label>
+          <input name="brokername" type="text" class="form-control" placeholder="Broker/Agent Name" id="brokername">
+        </div>
+        <div class="col-md-3">
+          <label for="email" class="form-label">Broker/Agent Email</label>
+          <input name="brokeremail" type="email" placeholder="Broker/Agent Email" class="form-control" id="email">
+        </div>
+        <div class="col-md-3">
+          <label for="ownermobnumber" class="form-label">Broker/Agent Mob No.</label>
+          <input name="brokernumber" type="text" placeholder="Broker/Agent Mobile No." class="form-control" id="ownermobnumber">
+        </div>
+        <div class="col-md-3">
+          <label for="ownerwpnumber" class="form-label">Broker/Agent Whatsapp No.</label>
+          <input name="brokerwhatsapp" type="text" placeholder="Broker/Agent Wp No." class="form-control" id="ownerwpnumber">
+        </div>
+        <div class="col-md-3">
+          <label for="country" class="form-label">Country</label>
+          <select name="country" id="country" class="form-select">
             <option selected>Choose...</option>
-            <option>...</option>
+            <option>India</option>
+            <option>Pakistan</option>
+            <option>Nepal</option>
+            <option>Bhutan</option>
+            <option>SriLanka</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label for="State" class="form-label">State</label>
+          <select name="state" id="State" class="form-select">
+            <option selected>Choose...</option>
+            <option>Madhya Pradesh</option>
+            <option>Rajasthan</option>
+            <option>Gujrat</option>
+            <option>Punjab</option>
+            <option>Maharashtra</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label for="city" class="form-label">City</label>
+          <select name="city" id="city" class="form-select">
+            <option selected>Choose...</option>
+            <option>Indore</option>
+            <option>Bhopal</option>
+            <option>Jabalpur</option>
+            <option>Ujjain</option>
+            <option>Dewas</option>
           </select>
         </div>
         <div class="col-md-3">
           <label for="inputZip" class="form-label">Zip</label>
-          <input type="text" class="form-control" id="inputZip">
+          <input name="zip" type="text" class="form-control" id="inputZip">
+        </div>
+        <div class="col-md-6">
+          <label for="address" class="form-label">Address</label>
+          <input name="address" type="text" class="form-control" placeholder="Property Address" id="address">
+        </div>
+        <div class="col-md-6">
+          <label for="location" class="form-label">Location</label>
+          <input name="location" type="text" class="form-control" placeholder="Property Location" id="location">
+        </div>
+        <div class="col-md-12">
+          <label for="remark">Remark</label>
+          <textarea name="remark" class="form-control" placeholder="Comment Related To Lead" id="remark"></textarea>
+        </div>
+        <div class="col-md-12">
+          <label for="images" class="form-label">Property Images</label>
+          <input name="images" type="file" class="form-control" id="images" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
         </div>
         <div class="col-3">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-              Check me out
-            </label>
-          </div>
-        </div>
-        <div class="col-12">
-          <button type="submit" class="btn btn-primary">Sign in</button>
+          <button type="submit" class="btn btn-success">Create</button>
+          <button type="cancel" class="btn btn-danger">Cancel</button>
         </div>
       </form>
     </div>
         @include('layouts.footers.auth.footer')
     </div>
-    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-<script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
-	let table = new DataTable('#myTable');
+ $(document).ready(function() {
+            $('.increase').click(function(e) {
+                e.preventDefault();
+                var quantityElement = $(this).siblings('.quantity');
+                var quantity = parseInt(quantityElement.text());
+                quantity++;
+                quantityElement.empty().append(quantity);
+                console.log(quantity);
+            });
+
+            $('.decrease').click(function() {
+                var quantityElement = $(this).siblings('.quantity');
+                var quantity = parseInt(quantityElement.text());
+                if (quantity > 1) {
+                    quantity--;
+                }
+                quantityElement.empty().append(quantity);
+                console.log(quantity);
+            });
+
+            $("#form").on('submit', function(e) {
+                e.preventDefault();
+                var formData = new FormData($(this)[0]);
+                console.log(formData);
+                var size = $('.quantity').text();
+                var imageFile = $('#images')[0].files[0];
+                
+                formData.append('images', imageFile);
+                formData.append('size', size);
+                console.log(formData);
+                var url = '{{url("create-property")}}';
+
+                $.ajax({
+
+                    url: url,
+                    type: 'POST',
+                    data: formData,
+                    
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        // Handle the success response
+                       alert('created');
+                    },
+                    error: function(xhr) {
+                        // Handle the error response
+                        console.log(xhr.responseText);
+                    }
+                });
+            });
+            
+        });
+
 </script>
 @endsection

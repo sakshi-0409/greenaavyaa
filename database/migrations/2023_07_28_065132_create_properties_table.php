@@ -15,12 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('property_id');
             $table->string('location');
-            $table->string('area_sqft');
-            $table->string('rate_sqft');
             $table->string('for');
             $table->string('title');
             $table->string('owner_name');
-            $table->string('status');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });
