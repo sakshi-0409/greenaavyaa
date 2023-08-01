@@ -4,65 +4,59 @@
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Tables'])
     <div class="container">
-    <a href="{{url('contacts')}}">List All Brokers</a>
+        <h4>Create Contact</h4>
+    <a href="{{url('contacts')}}">List All Contacts</a>
     <form id="form" enctype="multipart/form-data" class="row g-3">
       @csrf
         <div class="col-md-3">
-          <label for="brokerid" class="form-label">Broker Id</label>
-          <input name="brokerid" type="text" class="form-control" placeholder="#####" id="brokerid">
+          <label for="contactid" class="form-label">Contact Id</label>
+          <input name="contactid" type="text" class="form-control" placeholder="#####" id="contactid">
         </div>
         <div class="col-md-3">
-          <label for="date" class="form-label">Joining Date</label>
+          <label for="date" class="form-label">Contact Date</label>
           <input name="date" type="date" class="form-control" id="date">
         </div>
-     
         <div class="col-3">
-          <label for="workas" class="form-label">Work As A</label>
-            <select name="workas" id="workas" class="form-select" aria-label="Default select example">
+            <label for="source" class="form-label">Contact Source</label>
+              <select name="source" id="source" class="form-select" aria-label="Default select example">
+                  <option selected>Open this select menu</option>
+                  <option value="Social Media">Social Media</option>
+                  <option value="Digital Marketing">Digital Marketing</option>
+                  <option value="Networking">Networking</option>
+                  <option value="Website">Website</option>
+                  <option value="Email">Email</option>
+                  <option value="SMS">SMS</option>
+                  <option value="Whatsapp">Whatsapp</option>
+                  <option value="Campaign">Campaign</option>
+                  <option value="Fairs">Fairs</option>
+                  <option value="others">Others</option>
+                </select>
+          </div>
+        <div class="col-3">
+          <label for="contactof" class="form-label">Contact Of</label>
+            <select name="contactof" id="contactof" class="form-select" aria-label="Default select example">
                 <option selected>Open this select menu</option>
-                <option value="Broker">Broker</option>
-                <option value="Dealer">Dealer</option>
-                <option value="Agent">Agent</option>
-                <option value="Realtor">Realtor</option>
-                <option value="Builder">Builder</option>
-                <option value="Coloniser">Coloniser</option>
-                <option value="Developer">Developer</option>
-                <option value="Real Estate Company">Real Estate Company</option>
-                <option value="Others">Others</option>
+                <option value="Broker">Broker Name</option>
+                <option value="Dealer">Dealer Name</option>
+                <option value="Agent">Agent's Name</option>
+                <option value="Realtor">Company Name</option>
+                <option value="Builder">Investor</option>
+                <option value="Coloniser">Any Other</option>
               </select>
         </div>
-        <div class="col-3">
-            <label for="status" class="form-label">Status</label>
-            <div>
-                
-                <input class="form-check-input" type="radio" name="status" id="status" value="active" aria-label="...">
-                <label for="status" class="form-label">Active</label>
-                <input class="form-check-input" type="radio" name="status" id="status" value="inactive" aria-label="...">
-                <label for="status" class="form-label">Inactive</label>
-              </div>
-        </div>
+     
         
           <div class="col-md-6">
-            <label for="name" class="form-label"> Name</label>
+            <label for="companyname" class="form-label">Company Name</label>
+            <input name="companyname" type="text" class="form-control" placeholder="Company Name" id="companyname">
+          </div>
+        
+          <div class="col-md-6">
+            <label for="name" class="form-label">Person Name</label>
             <input name="name" type="text" class="form-control" placeholder="Name" id="name">
           </div>
-          <div class="col-3">
-            <label for="gender" class="form-label">Gender</label>
-            <div>
-                
-                <input class="form-check-input" type="radio" name="gender" id="gender" value="male" aria-label="...">
-                <label for="gender" class="form-label">Male</label>
-                <input class="form-check-input" type="radio" name="gender" id="gender" value="female" aria-label="...">
-                <label for="gender" class="form-label">Female</label>
-                <input class="form-check-input" type="radio" name="gender" id="gender" value="others" aria-label="...">
-                <label for="gender" class="form-label">Others</label>
-              </div>
-        </div>
-        <div class="col-md-3">
-          <label for="dob" class="form-label">Date Of Birth</label>
-          <input name="dob" type="date" class="form-control" id="dob">
-        </div>
-     
+         
+       
           <div class="col-md-6">
             <label for="email" class="form-label">Email</label>
             <input name="email" type="email" placeholder="Email" class="form-control" id="email">
@@ -120,23 +114,12 @@
           <label for="address" class="form-label">Address</label>
           <input name="address" type="text" class="form-control" placeholder="Property Address" id="address">
         </div>
-        <div class="col-md-3">
-          <label for="identitytype" class="form-label">Identity Type</label>
-          <select name="identitytype" id="identitytype" class="form-select">
-            <option selected>Choose...</option>
-            <option>Pan Card</option>
-            <option>Adhar Card</option>
-            <option>Voter Id</option>
-            <option>Passport</option>
-            <option>Bank Passbook</option>
-            <option>Driving License</option>
-            <option>Other</option>
-          </select>
+        <div class="col-md-6">
+          <label for="location" class="form-label">Location</label>
+          <input name="location" type="text" class="form-control" placeholder="Property Address" id="location">
         </div>
-        <div class="col-md-3">
-          <label for="identity" class="form-label">Identity Upload</label>
-          <input name="identity" type="file" class="form-control" placeholder="Property Address" id="identity">
-        </div>
+       
+        
         <div class="col-md-12">
           <label for="remark">Remark</label>
           <textarea name="remark" class="form-control" placeholder="Comment Related To Lead" id="remark"></textarea>
@@ -157,9 +140,8 @@
                 e.preventDefault();
                 var formData = new FormData($(this)[0]);
                 console.log(formData);
-                var imageFile = $('#identity')[0].files[0];
-                formData.append('identity', imageFile);
-                var url = '{{url("createbroker")}}';
+              
+                var url = '{{url("create-contact")}}';
 
                 $.ajax({
 
@@ -172,13 +154,12 @@
                     success: function(response) {
                         // Handle the success response
                              
-                          $('#brokerid').val('');
+                          $('#contactid').val('');
                           $('#date').val('');
-                          $('#workas').val('');
-                          $('#status').val('');
+                          $('#source').val('');
+                          $('#contactof').val('');
+                          $('#companyname').val('');
                           $('#name').val('');
-                          $('#gender').val('');
-                          $('#dob').val('');
                           $('#email').val('');
                           $('#mobile').val('');
                           $('#whatsapp').val('');
@@ -187,8 +168,7 @@
                           $('#city').val('');
                           $('#Zip').val('');
                           $('#address').val('');
-                          $('#identitytype').val('');
-                          $('#identity').val('');
+                          $('#location').val('');
                           $('#remark').val('');
                     },
                     error: function(xhr) {

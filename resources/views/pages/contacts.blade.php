@@ -9,6 +9,7 @@
                 <div class="card mb-4">
                     <div class="card-header pb-0">
                         <h6>Contacts</h6>
+                        <a href="{{url('create-contact')}}">Create New Contact</a>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
@@ -16,15 +17,19 @@
                                 <thead>
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                             Name</th>
+                                             Contact Id</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                             Name
+                                        </th>
+
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Contact Number</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            City</th>
+                                            Contact Of</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Description</th>
+                                            Address</th>
                                         
                                     </tr>
                                 </thead>
@@ -35,16 +40,20 @@
                                     <tr>
                                         
                                         <td>
+                                            <p class="text-xs font-weight-bold mb-0">{{$Contact->contactid}}</p>
+                                        </td>
+                                        <td>
                                             <p class="text-xs font-weight-bold mb-0">{{$Contact->name}}</p>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{$Contact->contact}}</p>
+                                            <p class="text-xs font-weight-bold mb-0">{{$Contact->mobile}}</p>
+                                            <p class="text-xs font-weight-bold mb-0">{{$Contact->email}}</p>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{$Contact->city}}</p>
+                                            <p class="text-xs font-weight-bold mb-0">{{$Contact->contact_of}}</p>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{$Contact->description}}</p>
+                                            <p class="text-xs font-weight-bold mb-0">{{$Contact->address}}</p>
                                         </td>
                                        
                                 </tr>

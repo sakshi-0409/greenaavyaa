@@ -45,6 +45,9 @@ class adminController extends Controller
     public function contacts(){
         return view('pages/contacts');
     }
+    public function createcontact(){
+        return view('pages/create-contact');
+    }
 
 }
 
