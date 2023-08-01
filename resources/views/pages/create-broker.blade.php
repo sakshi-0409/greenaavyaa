@@ -35,9 +35,9 @@
             <label for="status" class="form-label">Status</label>
             <div>
                 
-                <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="active" aria-label="...">
+                <input class="form-check-input" type="radio" name="status" id="status" value="active" aria-label="...">
                 <label for="status" class="form-label">Active</label>
-                <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="inactive" aria-label="...">
+                <input class="form-check-input" type="radio" name="status" id="status" value="inactive" aria-label="...">
                 <label for="status" class="form-label">Inactive</label>
               </div>
         </div>
@@ -47,15 +47,15 @@
             <input name="name" type="text" class="form-control" placeholder="Name" id="name">
           </div>
           <div class="col-3">
-            <label for="status" class="form-label">Gender</label>
+            <label for="gender" class="form-label">Gender</label>
             <div>
                 
-                <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="male" aria-label="...">
-                <label for="status" class="form-label">Male</label>
-                <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="female" aria-label="...">
-                <label for="status" class="form-label">Female</label>
-                <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="others" aria-label="...">
-                <label for="status" class="form-label">Others</label>
+                <input class="form-check-input" type="radio" name="gender" id="gender" value="male" aria-label="...">
+                <label for="gender" class="form-label">Male</label>
+                <input class="form-check-input" type="radio" name="gender" id="gender" value="female" aria-label="...">
+                <label for="gender" class="form-label">Female</label>
+                <input class="form-check-input" type="radio" name="gender" id="gender" value="others" aria-label="...">
+                <label for="gender" class="form-label">Others</label>
               </div>
         </div>
         <div class="col-md-3">
@@ -68,12 +68,12 @@
             <input name="email" type="email" placeholder="Email" class="form-control" id="email">
           </div>
           <div class="col-md-3">
-            <label for="mobnumber" class="form-label">Mobile No.</label>
-            <input name="mobile" type="text" placeholder="Mobile No." class="form-control" id="mobnumber">
+            <label for="mobile" class="form-label">Mobile No.</label>
+            <input name="mobile" type="text" placeholder="Mobile No." class="form-control" id="mobile">
           </div>
           <div class="col-md-3">
-            <label for="wpnumber" class="form-label">Whatsapp No.</label>
-            <input name="whatsapp" type="text" placeholder="Whatsapp No." class="form-control" id="wpnumber">
+            <label for="whatsapp" class="form-label">Whatsapp No.</label>
+            <input name="whatsapp" type="text" placeholder="Whatsapp No." class="form-control" id="whatsapp">
           </div>
 
 
@@ -83,7 +83,7 @@
           <label for="country" class="form-label">Country</label>
           <select name="country" id="country" class="form-select">
             <option selected>Choose...</option>
-            <option>India</option>
+            <option >India</option>
             <option>Pakistan</option>
             <option>Nepal</option>
             <option>Bhutan</option>
@@ -113,7 +113,7 @@
           </select>
         </div>
         <div class="col-md-3">
-          <label for="inputZip" class="form-label">Zip</label>
+          <label for="zip" class="form-label">Zip</label>
           <input name="zip" type="text" class="form-control" placeholder="Zip" id="Zip">
         </div>
         <div class="col-md-6">
@@ -121,8 +121,8 @@
           <input name="address" type="text" class="form-control" placeholder="Property Address" id="address">
         </div>
         <div class="col-md-3">
-          <label for="city" class="form-label">Identity Type</label>
-          <select name="city" id="city" class="form-select">
+          <label for="identitytype" class="form-label">Identity Type</label>
+          <select name="identitytype" id="identitytype" class="form-select">
             <option selected>Choose...</option>
             <option>Pan Card</option>
             <option>Adhar Card</option>
@@ -157,8 +157,9 @@
                 e.preventDefault();
                 var formData = new FormData($(this)[0]);
                 console.log(formData);
-                
-                var url = '{{url("create-lead")}}';
+                var imageFile = $('#identity')[0].files[0];
+                formData.append('identity', imageFile);
+                var url = '{{url("createbroker")}}';
 
                 $.ajax({
 
@@ -171,22 +172,23 @@
                     success: function(response) {
                         // Handle the success response
                              
-                          $('#leadid').val('');
+                          $('#brokerid').val('');
                           $('#date').val('');
-                          $('#priority').val('');
+                          $('#workas').val('');
                           $('#status').val('');
-                          $('#title').val('');
-                          $('#availability').val('');
                           $('#name').val('');
+                          $('#gender').val('');
+                          $('#dob').val('');
                           $('#email').val('');
-                          $('#mobnumber').val('');
-                          $('#wpnumber').val('');
+                          $('#mobile').val('');
+                          $('#whatsapp').val('');
                           $('#country').val('');
                           $('#State').val('');
                           $('#city').val('');
                           $('#Zip').val('');
                           $('#address').val('');
-                          $('#location').val('');
+                          $('#identitytype').val('');
+                          $('#identity').val('');
                           $('#remark').val('');
                     },
                     error: function(xhr) {

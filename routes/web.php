@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\leadController;
+use App\Http\Controllers\brokersController;
 use App\Http\Controllers\propertyController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,7 +46,7 @@ Route::get('/createlead', [adminController::class,'createlead'])->name('createle
 Route::post('/create-lead', [leadController::class,'create_lead'])->name('create-lead');
 Route::get('/brokers', [adminController::class,'brokers'])->name('brokers');
 Route::get('/createbroker', [adminController::class,'createbroker'])->name('createbroker');
-Route::post('/createbroker', [adminController::class,'createbroker'])->name('createbroker');
+Route::post('/createbroker', [brokersController::class,'createbroker'])->name('createbroker');
 
 
 
