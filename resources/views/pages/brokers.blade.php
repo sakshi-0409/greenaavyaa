@@ -17,56 +17,53 @@
                                 <thead>
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Lead id</th>
+                                            Broker id</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Lead Source</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Name</th>
+                                        Broker Name</th>
+                                        
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Mobile</th>
+                                            Mobile Number</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Lead For</th>
+                                            Email</th>
                                            
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Priority</th>
+                                            Date Of Birth</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $leads = App\Models\Leads::all() ?>
-                                    @foreach ($leads as $lead)
+                                    <?php $brokers = App\Models\Brokers::all() ?>
+                                    @foreach ($brokers as $broker)
                                         
                                     <tr>
                                         
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{$lead->lead_id}}</p>
+                                            <p class="text-xs font-weight-bold mb-0">{{$broker->brokerid}}</p>
                                         </td>
                                        
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{$lead->source}}</p>
+                                            <p class="text-xs font-weight-bold mb-0">{{$broker->name}}</p>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{$lead->name}}</p>
+                                            <p class="text-xs font-weight-bold mb-0">{{$broker->mobile}}</p>
                                         </td>
                                         
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{$lead->mobile_no}}</p>
+                                            <p class="text-xs font-weight-bold mb-0">{{$broker->email}}</p>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{$lead->leadfor}}</p>
+                                            <p class="text-xs font-weight-bold mb-0">{{$broker->dob}}</p>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{$lead->priority}}</p>
+                                            <p class="badge badge-sm bg-gradient-success text-xs font-weight-bold mb-0">{{$broker->status}}</p>
                                         </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{$lead->status}}</p>
-                                        </td>
+                                       
                                         
                                 </tr>
                                 
