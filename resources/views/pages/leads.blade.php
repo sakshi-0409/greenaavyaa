@@ -36,6 +36,9 @@
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Status</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -67,6 +70,10 @@
                                         <td>
                                             <p class="text-xs font-weight-bold mb-0">{{$lead->status}}</p>
                                         </td>
+                                        <td class="align-middle text-center text-sm">
+                                            <span class="cursor-pointer badge badge-sm bg-gradient-success edit" data-id="{{$lead->id}}">Edit</span>
+                                            <span class="cursor-pointer badge badge-sm bg-gradient-danger delete" data-id="{{$lead->id}}" >Delete</span>
+                                        </td>
                                         
                                 </tr>
                                 
@@ -84,5 +91,27 @@
 <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
 	let table = new DataTable('#myTable');
+    
+</script>
+<script>
+    $(document).ready(function() {
+		$('body').on('click', '.delete', function(e) {
+                e.preventDefault();
+                var row = $(this).closest('tr');
+                var id = $(this).data('id');
+                var url = `{{ url('/deletelead') }}/?id=${id}`;
+               
+                console.log(url);
+                $.ajax({
+
+                    url: url,
+                    data: jQuery('.remove').serialize(),
+                    type: 'get',
+                    success: function(response) {
+                        row.remove();
+                    }
+                });
+            });
+        });
 </script>
 @endsection

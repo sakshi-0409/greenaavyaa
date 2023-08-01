@@ -36,4 +36,15 @@ class leadController extends Controller
         return  response()->json(['msg'=>'successfull']);
 
     }
+    public function edit_lead(){
+
+    }
+    public function update_lead(){
+
+    }
+
+    public function delete_lead(Request $request){
+        $lead = Leads::find($request->id);
+        $lead->delete();
+    }
 }

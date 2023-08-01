@@ -44,11 +44,12 @@ Route::get('/virtual-reality', [adminController::class,'user_management'])->name
 Route::get('/leads', [adminController::class,'leads'])->name('leads');
 Route::get('/createlead', [adminController::class,'createlead'])->name('createlead');
 Route::post('/create-lead', [leadController::class,'create_lead'])->name('create-lead');
+Route::get('/deletelead', [leadController::class,'delete_lead'])->name('delete-lead');
 Route::get('/brokers', [adminController::class,'brokers'])->name('brokers');
-Route::get('/createbroker', [adminController::class,'createbroker'])->name('createbroker');
+Route::get('/createbroker', [adminController::class,'createbroker'])->name('create-broker');
 Route::post('/createbroker', [brokersController::class,'createbroker'])->name('createbroker');
 Route::get('/contacts', [adminController::class,'contacts'])->name('contacts');
-Route::get('/create-contact', [adminController::class,'createcontact'])->name('createcontact');
+Route::get('/create-contact', [adminController::class,'createcontact'])->name('create-contact');
 Route::post('/create-contact', [contactController::class,'createcontact'])->name('createcontact');
 
 
