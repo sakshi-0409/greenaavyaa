@@ -11,9 +11,7 @@ class leadController extends Controller
         return view('pages/leads');
     }
     public function createlead(){
-        $title = "Create Lead";
-        $data = compact('title');
-        return view('pages/create-lead')->with($data);
+        return view('pages/create-lead');
     }
     public function create_lead(Request $request){
         $lead = new Leads;
@@ -47,8 +45,7 @@ class leadController extends Controller
 
     public function edit_lead(String $id){
         $lead = Leads::find($id);
-        $title = "Edit Lead";
-        $data = compact('lead','title');
+        $data = compact('lead');
         return view('pages/update-lead')->with($data);
     }
     

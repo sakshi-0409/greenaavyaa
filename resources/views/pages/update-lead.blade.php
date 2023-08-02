@@ -6,6 +6,7 @@
     <div class="container">
       <h4>{{@$title}}</h4>
     <a href="{{url('leads')}}">List All Leads</a>
+    <h4>Update Lead</h4>
     <form id="form" enctype="multipart/form-data" class="row g-3">
       @csrf
         <div class="col-md-3">

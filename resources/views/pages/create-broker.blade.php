@@ -4,7 +4,8 @@
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Tables'])
     <div class="container">
-    <a href="{{url('contacts')}}">List All Brokers</a>
+    <a href="{{url('brokers')}}">List All Brokers</a>
+    <h4>Create Broker</h4>
     <form id="form" enctype="multipart/form-data" class="row g-3">
       @csrf
         <div class="col-md-3">
