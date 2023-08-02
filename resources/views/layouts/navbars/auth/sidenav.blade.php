@@ -12,7 +12,7 @@
     <hr class="horizontal dark mt-0">
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'home' ? 'active' : '' }}" href="{{ route('home') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -20,7 +20,7 @@
                     </div>
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
-            </li>
+            </li> --}}
          
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'leads' ? 'active' : '' }}" href="{{ route('leads')}}">
@@ -49,7 +49,7 @@
                     <span class="nav-link-text ms-1">Brokers</span>
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'schedule' ? 'active' : '' }}" href="">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -57,8 +57,8 @@
                     </div>
                     <span class="nav-link-text ms-1">Schedule</span>
                 </a>
-            </li>
-            <li class="nav-item">
+            </li> --}}
+            {{-- <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'team' ? 'active' : '' }}" href="">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -66,7 +66,7 @@
                     </div>
                     <span class="nav-link-text ms-1">Team</span>
                 </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'contacts' ? 'active' : '' }}" href="{{url('contacts')}}">
                     <div
@@ -76,7 +76,7 @@
                     <span class="nav-link-text ms-1">Contacts</span>
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'billing' ? 'active' : '' }}" href="{{url('billing')}}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -84,8 +84,8 @@
                     </div>
                     <span class="nav-link-text ms-1">Billing</span>
                 </a>
-            </li>
-            <li class="nav-item">
+            </li> --}}
+            {{-- <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'task' ? 'active' : '' }}" href="">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -93,8 +93,8 @@
                     </div>
                     <span class="nav-link-text ms-1">Task</span>
                 </a>
-            </li>
-            <li class="nav-item">
+            </li> --}}
+            {{-- <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'setting' ? 'active' : '' }}" href="">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -102,12 +102,12 @@
                     </div>
                     <span class="nav-link-text ms-1">Setting</span>
                 </a>
-            </li>
+            </li> --}}
 
 
            
             
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'analytics' ? 'active' : '' }}" href="">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -115,7 +115,7 @@
                     </div>
                     <span class="nav-link-text ms-1">Analytics</span>
                 </a>
-            </li>
+            </li> --}}
            
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>

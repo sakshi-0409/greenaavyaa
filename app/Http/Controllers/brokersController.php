@@ -36,4 +36,12 @@ class brokersController extends Controller
        $broker->save();
        return response()->json(['msg'=>'successfull']);
     }
+
+    
+    public function delete_broker(Request $request){
+        $broker = Brokers::find($request->id);
+        $broker->delete();
+        return  response()->json(['msg'=>'successfull']);
+
+    }
 }
