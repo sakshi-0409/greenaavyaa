@@ -92,5 +92,7 @@ class leadController extends Controller
     public function delete_lead(Request $request){
         $lead = Leads::find($request->id);
         $lead->delete();
+        return  response()->json(['msg'=>'successfull']);
+
     }
 }

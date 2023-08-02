@@ -55,4 +55,10 @@ class propertyController extends Controller
         return  response()->json(['msg'=>'successfull']);
 
     }
+    public function delete_property(Request $request){
+        $lead = Properties::find($request->id);
+        $lead->delete();
+        return  response()->json(['msg'=>'successfull']);
+
+    }
 }

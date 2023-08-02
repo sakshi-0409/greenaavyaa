@@ -36,6 +36,9 @@
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Status</th>
+                                            <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -68,6 +71,10 @@
                                     <td class="align-middle text-center text-sm">
                                         <span class="badge badge-sm bg-gradient-success">{{$property->availability}}</span>
                                     </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="cursor-pointer badge badge-sm bg-gradient-success edit" data-id="{{$property->id}}"><a href="{{url('editproperty')}}/{{$property->id}}">Edit</a></span>
+                                        <span class="cursor-pointer badge badge-sm bg-gradient-danger delete" data-id="{{$property->id}}" >Delete</span>
+                                    </td>
                                 </tr>
                                 
                                 @endforeach
@@ -84,5 +91,27 @@
 <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
 	let table = new DataTable('#myTable');
+</script>
+<script>
+    $(document).ready(function() {
+		$('body').on('click', '.delete', function(e) {
+                e.preventDefault();
+                var row = $(this).closest('tr');
+                var id = $(this).data('id');
+                var url = `{{ url('/deleteproperty') }}/?id=${id}`;
+               
+                console.log(url);
+                $.ajax({
+
+                    url: url,
+                    data: jQuery('.remove').serialize(),
+                    type: 'get',
+                    success: function(response) {
+                        row.remove();
+                    }
+                });
+            });
+		
+        });
 </script>
 @endsection
