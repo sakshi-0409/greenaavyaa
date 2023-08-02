@@ -306,7 +306,8 @@
                 console.log(quantity);
             });
 
-            $('.decrease').click(function() {
+            $('.decrease').click(function(e) {
+              e.preventDefault();
                 var quantityElement = $(this).siblings('.quantity');
                 var quantity = parseInt(quantityElement.text());
                 if (quantity > 1) {

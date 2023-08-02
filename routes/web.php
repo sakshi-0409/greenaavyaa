@@ -40,6 +40,8 @@ Route::get('/sign-up', [adminController::class,'sign_up'])->name('sign-up-static
 Route::get('/properties', [propertyController::class,'properties'])->name('properties');
 Route::get('/createproperty', [propertyController::class,'createproperty'])->name('createproperty');
 Route::post('/create-property', [propertyController::class,'create_property'])->name('create-property');
+Route::get('/editproperty/{id}', [propertyController::class,'edit_property'])->name('edit-property');
+Route::post('/update-property/{id}', [propertyController::class,'update_property'])->name('update-property');
 Route::get('/deleteproperty', [propertyController::class,'delete_property'])->name('delete-property');
 
 Route::get('/user-profile', [adminController::class,'user_management'])->name('profile-static');

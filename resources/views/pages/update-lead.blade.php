@@ -176,7 +176,7 @@
         </div>
         
         <div class="col-3">
-          <button type="submit" id="id" data-id="{{$lead->id}}" class="btn btn-success">Create</button>
+          <button type="submit" id="id" data-id="{{$lead->id}}" class="btn btn-success">Update</button>
           <button type="cancel" class="btn btn-danger">Cancel</button>
         </div>
       </form>
