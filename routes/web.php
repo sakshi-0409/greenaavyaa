@@ -66,6 +66,9 @@ Route::get('/deletebroker', [brokersController::class,'delete_broker'])->name('d
 Route::get('/contacts', [contactController::class,'contacts'])->name('contacts');
 Route::get('/create-contact', [contactController::class,'create_contact'])->name('create-contact');
 Route::post('/create-contact', [contactController::class,'createcontact'])->name('createcontact');
+Route::get('/editcontact/{id}', [contactController::class,'edit_contact'])->name('editcontact');
+Route::post('/update-contact/{id}', [contactController::class,'update_contact'])->name('updatecontact');
+Route::get('/deletecontact', [contactController::class,'delete_contact'])->name('deletecontact');
 
 
 Route::get('/user-profile', [adminController::class,'user_management'])->name('profile-static');
