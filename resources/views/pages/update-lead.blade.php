@@ -176,7 +176,7 @@
         </div>
         
         <div class="col-3">
-          <button type="submit" class="btn btn-success">Create</button>
+          <button type="submit" id="id" data-id="{{$lead->id}}" class="btn btn-success">Create</button>
           <button type="cancel" class="btn btn-danger">Cancel</button>
         </div>
       </form>
@@ -186,14 +186,16 @@
     </div>
 <script>
 
- $(document).ready(function() {
+$(document).ready(function() {
            
           $("#form").on('submit', function(e) {
                 e.preventDefault();
                 var formData = new FormData($(this)[0]);
+                var id = $('#id').data('id');
                 console.log(formData);
+                console.log(id);
                 
-                var url = '{{url("create-lead")}}';
+                var url = `{{url("update-lead")}}/${id}`;
                
 
                 $.ajax({
@@ -238,7 +240,7 @@
                 });
           });
             
-  });
+});
 
 </script>
 @endsection

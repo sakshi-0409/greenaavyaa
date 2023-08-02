@@ -7,6 +7,12 @@ use App\Models\Contacts;
 
 class contactController extends Controller
 {
+    public function contacts(){
+        return view('pages/contacts');
+    }
+    public function create_contact(){
+        return view('pages/create-contact');
+    }
     public function createcontact(Request $request){
         $contact = new Contacts;
         $contact->contactid = $request->contactid;

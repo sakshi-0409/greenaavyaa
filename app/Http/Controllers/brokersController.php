@@ -7,6 +7,12 @@ use App\Models\Brokers;
 
 class brokersController extends Controller
 {
+    public function brokers(){
+        return view('pages/brokers');
+    }
+    public function create_broker(){
+        return view('pages/create-broker');
+    }
     public function createbroker(Request $request){
        $broker = new Brokers; 
        $broker->brokerid = $request->brokerid;

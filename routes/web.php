@@ -36,20 +36,27 @@ Route::get('/admin-profile', [adminController::class,'admin_profile'])->name('ad
 Route::get('/rtl', [adminController::class,'rtl'])->name('rtl');
 Route::get('/sign-in', [adminController::class,'sign_in'])->name('sign-in-static');
 Route::get('/sign-up', [adminController::class,'sign_up'])->name('sign-up-static');
-Route::get('/properties', [adminController::class,'properties'])->name('properties');
-Route::get('/createproperty', [adminController::class,'createproperty'])->name('createproperty');
+
+Route::get('/properties', [propertyController::class,'properties'])->name('properties');
+Route::get('/createproperty', [propertyController::class,'createproperty'])->name('createproperty');
 Route::post('/create-property', [propertyController::class,'create_property'])->name('create-property');
+
 Route::get('/user-profile', [adminController::class,'user_management'])->name('profile-static');
 Route::get('/virtual-reality', [adminController::class,'user_management'])->name('virtual-reality');
-Route::get('/leads', [adminController::class,'leads'])->name('leads');
-Route::get('/createlead', [adminController::class,'createlead'])->name('createlead');
+
+Route::get('/leads', [leadController::class,'leads'])->name('leads');
+Route::get('/createlead', [leadController::class,'createlead'])->name('createlead');
 Route::post('/create-lead', [leadController::class,'create_lead'])->name('create-lead');
+Route::get('/editlead/{id}', [leadController::class,'edit_lead'])->name('edit-lead');
+Route::post('/update-lead/{id}', [leadController::class,'update_lead'])->name('update-lead');
 Route::get('/deletelead', [leadController::class,'delete_lead'])->name('delete-lead');
-Route::get('/brokers', [adminController::class,'brokers'])->name('brokers');
-Route::get('/createbroker', [adminController::class,'createbroker'])->name('create-broker');
+
+Route::get('/brokers', [brokersController::class,'brokers'])->name('brokers');
+Route::get('/createbroker', [brokersController::class,'create_broker'])->name('create-broker');
 Route::post('/createbroker', [brokersController::class,'createbroker'])->name('createbroker');
-Route::get('/contacts', [adminController::class,'contacts'])->name('contacts');
-Route::get('/create-contact', [adminController::class,'createcontact'])->name('create-contact');
+
+Route::get('/contacts', [contactController::class,'contacts'])->name('contacts');
+Route::get('/create-contact', [contactController::class,'create_contact'])->name('create-contact');
 Route::post('/create-contact', [contactController::class,'createcontact'])->name('createcontact');
 
 

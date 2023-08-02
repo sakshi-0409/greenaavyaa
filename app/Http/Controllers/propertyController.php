@@ -7,6 +7,12 @@ use App\Models\Properties;
 
 class propertyController extends Controller
 {
+    public function properties(){
+        return view('pages/properties');
+    }
+    public function createproperty(){
+        return view('pages/createproperty');
+    }
     public function create_property(Request $request){
         $property = new Properties;
         $property->property_id = $request->propertyid;

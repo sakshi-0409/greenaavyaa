@@ -24,30 +24,10 @@ class adminController extends Controller
     public function sign_up(){
         return view('pages/sign-up-static');
     }
-    public function properties(){
-        return view('pages/properties');
-    }
-    public function createproperty(){
-        return view('pages/createproperty');
-    }
-    public function leads(){
-        return view('pages/leads');
-    }
-    public function createlead(){
-        return view('pages/create-lead');
-    }
-    public function brokers(){
-        return view('pages/brokers');
-    }
-    public function createbroker(){
-        return view('pages/create-broker');
-    }
-    public function contacts(){
-        return view('pages/contacts');
-    }
-    public function createcontact(){
-        return view('pages/create-contact');
-    }
+   
+   
+  
+  
 
 }
 
