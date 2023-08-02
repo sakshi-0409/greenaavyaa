@@ -58,6 +58,8 @@ Route::get('/deletelead', [leadController::class,'delete_lead'])->name('delete-l
 Route::get('/brokers', [brokersController::class,'brokers'])->name('brokers');
 Route::get('/createbroker', [brokersController::class,'create_broker'])->name('create-broker');
 Route::post('/createbroker', [brokersController::class,'createbroker'])->name('createbroker');
+Route::get('/editbroker/{id}', [brokersController::class,'edit_broker'])->name('editbroker');
+Route::post('/updatebroker/{id}', [brokersController::class,'update_broker'])->name('updatebroker');
 Route::get('/deletebroker', [brokersController::class,'delete_broker'])->name('deletebroker');
 
 

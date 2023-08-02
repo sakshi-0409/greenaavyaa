@@ -67,7 +67,7 @@
                                             <p class="badge badge-sm bg-gradient-success text-xs font-weight-bold mb-0">{{$broker->status}}</p>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="cursor-pointer badge badge-sm bg-gradient-success edit" data-id="{{$broker->id}}"><a href="{{url('editlead')}}/{{$broker->id}}">Edit</a></span>
+                                            <span class="cursor-pointer badge badge-sm bg-gradient-success edit" data-id="{{$broker->id}}"><a href="{{url('editbroker')}}/{{$broker->id}}">Edit</a></span>
                                             <span class="cursor-pointer badge badge-sm bg-gradient-danger delete" data-id="{{$broker->id}}" >Delete</span>
                                         </td>
                                        
