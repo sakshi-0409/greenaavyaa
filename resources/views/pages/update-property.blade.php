@@ -18,7 +18,7 @@
         <div class="col-3">
             <label for="propertyby" class="form-label">Property By</label>
             <select name="propertyby" id="propertyby" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="agent" {{@$property->property_by === 'agent' ? 'selected': ''}}>Agent</option>
                 <option value="broker" {{@$property->property_by === 'broker' ? 'selected': ''}}>Broker</option>
                 <option value="owner" {{@$property->property_by === 'owner' ? 'selected': ''}}>Owner</option>
@@ -28,7 +28,7 @@
         <div class="col-3">
             <label for="propertyfor" class="form-label">Property For</label>
             <select name="propertyfor" id="propertyfor" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="buy" {{@$property->for === 'buy' ? 'selected': ''}}>Buy</option>
                 <option value="sale" {{@$property->for === 'sale' ? 'selected': ''}}>Sale</option>
                 <option value="rent" {{@$property->for === 'rent' ? 'selected': ''}}>Rent</option>
@@ -38,7 +38,7 @@
         <div class="col-3">
             <label for="propertytype" class="form-label">Property Type</label>
             <select name="propertytype" id="propertytype" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <optgroup label="Residential">
                     <option value="houses" {{@$property->property_type === 'houses' ? 'selected': ''}}>Houses</option>
                     <option value="duplexes" {{@$property->property_type === 'duplexes' ? 'selected': ''}}>Duplexes</option>
@@ -83,7 +83,7 @@
         <div class="col-3">
             <label for="priority" class="form-label">Priority</label>
             <select name="priority" id="priority" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="low" {{@$property->priority === 'low' ? 'selected': ''}}>Low</option>
                 <option value="normal" {{@$property->priority === 'normal' ? 'selected': ''}}>Normal</option>
                 <option value="medium" {{@$property->priority === 'medium' ? 'selected': ''}}>Medium</option>
@@ -93,7 +93,7 @@
         <div class="col-3">
             <label for="status" class="form-label">Status</label>
             <select name="status" id="status" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="Open" {{@$property->status === 'Open' ? 'selected': ''}}>Open</option>
                 <option value="Rejected" {{@$property->status === 'Rejected' ? 'selected': ''}}>Rejected</option>
                 <option value="Inprocess" {{@$property->status === 'Inprocess' ? 'selected': ''}}>Inprocess</option>
@@ -107,7 +107,7 @@
         <div class="col-3">
             <label for="financial" class="form-label">Financial</label>
             <select name="financial" id="financial" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="Financed" {{@$property->financial === 'Financed' ? 'selected': ''}}>Financed</option>
                 <option value="Freehold" {{@$property->financial === 'Freehold' ? 'selected': ''}}>Freehold</option>
                 <option value="Others" {{@$property->financial === 'Others' ? 'selected': ''}}>Others</option>
@@ -120,7 +120,7 @@
         <div class="col-3">
             <label for="propertydocuments" class="form-label">Property Documents</label>
             <select name="documents" id="propertydocuments" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="Registry" {{@$property->documents === 'Registry' ? 'selected': ''}}>Registry</option>
                 <option value="Notary" {{@$property->documents === 'Notary' ? 'selected': ''}}>Notary</option>
                 <option value="Agreement" {{@$property->documents === 'Agreement' ? 'selected': ''}}>Agreement</option>
@@ -131,7 +131,7 @@
         <div class="col-3">
             <label for="age" class="form-label">Age Of Property</label>
             <select name="age" id="age" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="new" {{@$property->age === 'new' ? 'selected': ''}}>New</option>
                 <option value="0 Year" {{@$property->age === '0 Year' ? 'selected': ''}}>0 Year</option>
                 <option value="1 Year" {{@$property->age === '1 Year' ? 'selected': ''}}>1 Year</option>
@@ -160,7 +160,7 @@
         <div class="col-3">
             <label for="availability" class="form-label">Availability</label>
             <select name="availability" id="availability" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="Availabile" {{@$property->availability === 'Availabile' ? 'selected': ''}}>Availabile</option>
                 <option value="Not Availabile" {{@$property->availability === 'Not Availabile' ? 'selected': ''}}>Not Availabile</option>
             </select>
@@ -182,7 +182,7 @@
                     <button class="increase btn_new">+</button>
                 </div>
                 <select name="propertysize" id="propertysize" class="form-select mx-1" aria-label="Default select example">
-                    <option selected>Select</option>
+                    <option selected></option>
                     <option value="Meter" {{@$property->property_size_unit === 'Meter' ? 'selected': ''}}>Meter</option>
                     <option value="Square Meter" {{@$property->property_size_unit === 'Square Meter' ? 'selected': ''}}>Square Meter</option>
                     <option value="Square Feet" {{@$property->property_size_unit === 'Square Feet' ? 'selected': ''}}>Square Feet</option>
@@ -195,7 +195,7 @@
         <div class="col-3">
             <label for="direction" class="form-label">Property Direction</label>
             <select name="direction" id="direction" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="North" {{@$property->direction === 'North' ? 'selected': ''}}>North</option>
                 <option value="South" {{@$property->direction === 'South' ? 'selected': ''}}>South</option>
                 <option value="East" {{@$property->direction === 'East' ? 'selected': ''}}>East</option>
@@ -237,7 +237,7 @@
         <div class="col-md-3">
             <label for="country" class="form-label">Country</label>
             <select name="country" id="country" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option {{@$property->country === 'India' ? 'selected': ''}}>India</option>
                 <option {{@$property->country === 'Pakistan' ? 'selected': ''}}>Pakistan</option>
                 <option {{@$property->country === 'Nepal' ? 'selected': ''}}>Nepal</option>
@@ -248,7 +248,7 @@
         <div class="col-md-3">
             <label for="State" class="form-label">State</label>
             <select name="state" id="State" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option {{@$property->state === 'Madhya Pradesh' ? 'selected': ''}}>Madhya Pradesh</option>
                 <option {{@$property->state === 'Rajasthan' ? 'selected': ''}}>Rajasthan</option>
                 <option {{@$property->state === 'Gujrat' ? 'selected': ''}}>Gujrat</option>
@@ -259,7 +259,7 @@
         <div class="col-md-3">
             <label for="city" class="form-label">City</label>
             <select name="city" id="city" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option {{@$property->city === 'Indore' ? 'selected': ''}}>Indore</option>
                 <option {{@$property->city === 'Bhopal' ? 'selected': ''}}>Bhopal</option>
                 <option {{@$property->city === 'Jabalpur' ? 'selected': ''}}>Jabalpur</option>

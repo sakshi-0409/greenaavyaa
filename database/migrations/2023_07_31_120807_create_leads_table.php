@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('leads', function (Blueprint $table) {
             $table->id();
-            $table->integer('lead_id');
+            $table->string('lead_id');
             $table->date('date');
             $table->string('source');
             $table->string('leadby');

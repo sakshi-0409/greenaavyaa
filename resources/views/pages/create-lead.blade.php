@@ -5,14 +5,11 @@
 <div class="container">
     <a href="{{url('leads')}}">List All Leads</a>
     <h4>Create Lead</h4>
-    <form id="myForm" method="post" enctype="multipart/form-data" class="row g-3">
+    <form id="form" method="post" enctype="multipart/form-data" class="row g-3">
         @csrf
         <div class="col-md-3">
             <label for="leadid" class="form-label">Lead Id</label>
             <input name="leadid" value="{{@$lead->lead_id}}" type="text" class="@error('leadid') is-invalid @enderror form-control" placeholder="#####" id="leadid">
-            {{-- @error('leadid')
-            <div class="alert alert-danger">{{ $message }}</div>
-            @enderror --}}
         </div>
         <div class="col-md-3">
             <label for="date" class="form-label">Lead Date</label>
@@ -21,7 +18,7 @@
         <div class="col-3">
             <label for="leadsource" class="form-label">Lead Source</label>
             <select name="leadsource" id="leadsource" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="Social Media">Social Media</option>
                 <option value="Digital Marketing">Digital Marketing</option>
                 <option value="Networking">Networking</option>
@@ -37,7 +34,7 @@
         <div class="col-3">
             <label for="leadby" class="form-label">Lead By</label>
             <select name="leadby" id="leadby" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="Broker">Broker</option>
                 <option value="Dealer">Dealer</option>
                 <option value="Agent">Agent</option>
@@ -52,7 +49,7 @@
         <div class="col-3">
             <label for="leadfor" class="form-label">Lead For</label>
             <select name="leadfor" id="leadfor" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="buy">Buy</option>
                 <option value="sale">Sale</option>
                 <option value="rent">Rent</option>
@@ -61,7 +58,7 @@
         <div class="col-3">
             <label for="leadtype" class="form-label">Lead Type</label>
             <select name="leadtype" id="leadtype" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="Plot">Plot</option>
                 <option value="House">House</option>
                 <option value="Land">Land</option>
@@ -77,7 +74,7 @@
         <div class="col-3">
             <label for="priority" class="form-label">Priority</label>
             <select name="priority" id="priority" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="low">Low</option>
                 <option value="normal">Normal</option>
                 <option value="medium">Medium</option>
@@ -88,7 +85,7 @@
         <div class="col-3">
             <label for="status" class="form-label">Status</label>
             <select name="status" id="status" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="Open">Open</option>
                 <option value="Rejected">Rejected</option>
                 <option value="Inprocess">Inprocess</option>
@@ -127,7 +124,7 @@
         <div class="col-md-3">
             <label for="country" class="form-label">Country</label>
             <select name="country" id="country" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option>India</option>
                 <option>Pakistan</option>
                 <option>Nepal</option>
@@ -139,7 +136,7 @@
         <div class="col-md-3">
             <label for="State" class="form-label">State</label>
             <select name="state" id="State" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option>Madhya Pradesh</option>
                 <option>Rajasthan</option>
                 <option>Gujrat</option>
@@ -151,7 +148,7 @@
         <div class="col-md-3">
             <label for="city" class="form-label">City</label>
             <select name="city" id="city" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option>Indore</option>
                 <option>Bhopal</option>
                 <option>Jabalpur</option>
@@ -185,15 +182,148 @@
 
 </div>
 @push('js')
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" ></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
+<script>
+    $(document).ready(function() {
 
-            /* $("#form").on('submit', function(e) {
-                e.preventDefault();
-                var formData = new FormData($(this)[0]);
+        $("#form").validate({
+            rules: {
+                leadid: {
+                    required: true
+                    , minlength: 2
+                }
+                , date: {
+                    required: true
+                }
+                , leadsource: {
+                    required: true
+                }
+                , leadby: {
+                    required: true
+                }
+                , leadfor: {
+                    required: true
+                }
+                , leadtype: {
+                    required: true
+                }
+                , priority: {
+                    required: true
+                }
+                , status: {
+                    required: true
+                }
+                , companyname: {
+                    required: true
+                    , minlength: 2
+                }
+                , name: {
+                    required: true
+                    , minlength: 2
+                }
+                , email: {
+                    required: true
+                    , minlength: 6
+                }
+                , mobile: {
+                    required: true
+                    , minlength: 10
+                }
+                , whatsapp: {
+                    required: true
+                    , minlength: 10
+                }
+                , country: {
+                    required: true
+                }
+                , state: {
+                    required: true
+                }
+                , city: {
+                    required: true
+                }
+                , zip: {
+                    required: true
+                    , minlength: 5
+                }
+                , address: {
+                    required: true
+                    , minlength: 2
+                }
+                , location: {
+                    required: true
+                }
+                , remark: {
+                    required: true
+                    , minlength: 2
+                }
+            }
+            , messages: {
+                leadid: {
+                    required: "Please enter lead id"
+                }
+                , date: {
+                    required: "Please enter date"
+                }
+                , leadsource: {
+                    required: "Please select source"
+                }
+                , leadby: {
+                    required: "Please select lead by"
+                }
+                , leadfor: {
+                    required: "Please select lead for"
+                }
+                , leadtype: {
+                    required: "Please select lead type"
+                }
+                , priority: {
+                    required: "Please select priority"
+                }
+                , status: {
+                    required: "Please select status"
+                }
+                , companyname: {
+                    required: "Please enter company name"
+                }
+                , name: {
+                    required: "Please enter name"
+                }
+                , email: {
+                    required: "Please enter name"
+                }
+                , mobile: {
+                    required: "Please enter name"
+                }
+                , whatsapp: {
+                    required: "Please enter whatsapp number"
+                }
+                , country: {
+                    required: "Please select country"
+                }
+                , state: {
+                    required: "Please select state"
+                }
+                , city: {
+                    required: "Please select city"
+                }
+                , zip: {
+                    required: "Please entry city zip number"
+                }
+                , address: {
+                    required: "Please enter address"
+                }
+                , location: {
+                    required: "Please enter location"
+                }
+                , remark: {
+                    required: "Please fill remark"
+                }
+            }
+            , submitHandler: function(form) {
+                var formData = new FormData(form);
                 console.log(formData);
 
                 var url = '{{url("create-lead")}}';
@@ -210,74 +340,16 @@
                     , success: function(response) {
                         $('#form').trigger('reset');
                     }
+                    , error: function(xhr, status, error) {
+                        // Handle error response
+                        console.error("Error saving user data:", error);
+                    }
                 });
-            }); */
-    
-            $("#myForm").validate({
-                rules: {
-                    leadid: {
-                        required: true
-                        , minlength: 2
-                    }
-                    , date: {
-                        required: true
-                        , minlength: 2
-                    }
-                    , companyname: {
-                        required: true
-                        , minlength: 2
-                    }
-                    , name: {
-                        required: true
-                        , minlength: 2
-                    }
-                }
-                , messages: {
-                    leadid: {
-                        required: "Please enter lead id"
-                        , minlength: "First name must be at least 2 characters"
-                    }
-                    , date: {
-                        required: "Please enter date"
-                    }
-                    , companyname: {
-                        required: "Please enter Company Name"
-                        , minlength: "Last name must be at least 2 characters"
-                    }
-                    , name: {
-                        required: "Please enter name"
-                        , minlength: "Last name must be at least 2 characters"
-                    }
-                }
-                , submitHandler: function() {
-                    // Serialize the form data
-                    var formData = new FormData($(this)[0]);
-                    console.log(formData);
-
-                    var url = '{{url("create-lead")}}';
-
-
-                    $.ajax({
-
-                        url: url
-                        , type: 'POST'
-                        , data: formData,
-
-                        contentType: false
-                        , processData: false
-                        , success: function(response) {
-                            $('#form').trigger('reset');
-                        }
-                        , 
-                        error: function(xhr, status, error) {
-                            // Handle error response
-                            console.error("Error saving user data:", error);
-                        }
-                    });
-                }
-            });
+            }
         });
-    </script>
+    });
+
+</script>
 @endpush
 @include('layouts.footers.auth.footer')
 @endsection

@@ -19,7 +19,7 @@
         <div class="col-3">
             <label for="leadsource" class="form-label">Lead Source</label>
             <select name="leadsource" id="leadsource" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="Social Media" {{@$lead->source === 'Social Media' ? 'selected': ''}}>Social Media</option>
                 <option value="Digital Marketing" {{@$lead->source === 'Digital Marketing' ? 'selected': ''}}>Digital Marketing</option>
                 <option value="Networking" {{@$lead->source === 'Networking' ? 'selected': ''}}>Networking</option>
@@ -35,7 +35,7 @@
         <div class="col-3">
             <label for="leadby" class="form-label">Lead By</label>
             <select name="leadby" id="leadby" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="Broker" {{@$lead->leadby === 'Broker' ? 'selected': ''}}>Broker</option>
                 <option value="Dealer" {{@$lead->leadby === 'Dealer' ? 'selected': ''}}>Dealer</option>
                 <option value="Agent" {{@$lead->leadby === 'Agent' ? 'selected': ''}}>Agent</option>
@@ -50,7 +50,7 @@
         <div class="col-3">
             <label for="leadfor" class="form-label">Lead For</label>
             <select name="leadfor" id="leadfor" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="buy" {{@$lead->leadfor === 'buy' ? 'selected': ''}}>Buy</option>
                 <option value="sale" {{@$lead->leadfor === 'sale' ? 'selected': ''}}>Sale</option>
                 <option value="rent" {{@$lead->leadfor === 'rent' ? 'selected': ''}}>Rent</option>
@@ -59,7 +59,7 @@
         <div class="col-3">
             <label for="leadtype" class="form-label">Lead Type</label>
             <select name="leadtype" id="leadtype" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="Plot" {{@$lead->leadtype === 'Plot' ? 'selected': ''}}>Plot</option>
                 <option value="House" {{@$lead->leadtype === 'House' ? 'selected': ''}}>House</option>
                 <option value="Land" {{@$lead->leadtype === 'Land' ? 'selected': ''}}>Land</option>
@@ -75,7 +75,7 @@
         <div class="col-3">
             <label for="priority" class="form-label">Priority</label>
             <select name="priority" id="priority" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="low" {{@$lead->priority === 'low' ? 'selected': ''}}>Low</option>
                 <option value="normal" {{@$lead->priority === 'normal' ? 'selected': ''}}>Normal</option>
                 <option value="medium" {{@$lead->priority === 'medium' ? 'selected': ''}}>Medium</option>
@@ -86,7 +86,7 @@
         <div class="col-3">
             <label for="status" class="form-label">Status</label>
             <select name="status" id="status" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="Open" {{@$lead->status === 'Open' ? 'selected': ''}}>Open</option>
                 <option value="Rejected" {{@$lead->status === 'Rejected' ? 'selected': ''}}>Rejected</option>
                 <option value="Inprocess" {{@$lead->status === 'Inprocess' ? 'selected': ''}}>Inprocess</option>
@@ -125,7 +125,7 @@
         <div class="col-md-3">
             <label for="country" class="form-label">Country</label>
             <select name="country" id="country" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option {{@$lead->country === 'India' ? 'selected': ''}}>India</option>
                 <option {{@$lead->country === 'Pakistan' ? 'selected': ''}}>Pakistan</option>
                 <option {{@$lead->country === 'Nepal' ? 'selected': ''}}>Nepal</option>
@@ -137,7 +137,7 @@
         <div class="col-md-3">
             <label for="State" class="form-label">State</label>
             <select name="state" id="State" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option {{@$lead->state === 'Madhya Pradesh' ? 'selected': ''}}>Madhya Pradesh</option>
                 <option {{@$lead->state === 'Rajasthan' ? 'selected': ''}}>Rajasthan</option>
                 <option {{@$lead->state === 'Gujrat' ? 'selected': ''}}>Gujrat</option>
@@ -149,7 +149,7 @@
         <div class="col-md-3">
             <label for="city" class="form-label">City</label>
             <select name="city" id="city" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option {{@$lead->city === 'Indore' ? 'selected': ''}}>Indore</option>
                 <option {{@$lead->city === 'Bhopal' ? 'selected': ''}}>Bhopal</option>
                 <option {{@$lead->city === 'Jabalpur' ? 'selected': ''}}>Jabalpur</option>
@@ -176,70 +176,188 @@
         </div>
 
         <div class="col-3">
-            <button type="submit" id="id" data-id="{{$lead->id}}" class="btn btn-success">Update</button>
+            <button type="submit" id="id" data-id="{{@$lead->id}}" class="btn btn-success">Update</button>
             <button type="cancel" class="btn btn-danger">Cancel</button>
         </div>
     </form>
 
 </div>
-@include('layouts.footers.auth.footer')
-</div>
+
+
+@push('js')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+
 <script>
     $(document).ready(function() {
 
-        $("#form").on('submit', function(e) {
-            e.preventDefault();
-            var formData = new FormData($(this)[0]);
-            var id = $('#id').data('id');
-            console.log(formData);
-            console.log(id);
-
-            var url = `{{url("update-lead")}}/${id}`;
-
-
-            $.ajax({
-
-                url: url
-                , type: 'POST'
-                , data: formData,
-
-                contentType: false
-                , processData: false
-                , success: function(response) {
-                    // Handle the success response
-
-                    $('#leadid').val('');
-                    $('#date').val('');
-                    $('#leadsource').val('');
-                    $('#leadby').val('');
-                    $('#leadfor').val('');
-                    $('#leadtype').val('');
-                    $('#priority').val('');
-                    $('#status').val('');
-                    $('#title').val('');
-                    $('#availability').val('');
-                    $('#companyname').val('');
-                    $('#name').val('');
-                    $('#email').val('');
-                    $('#mobnumber').val('');
-                    $('#wpnumber').val('');
-                    $('#country').val('');
-                    $('#State').val('');
-                    $('#city').val('');
-                    $('#Zip').val('');
-                    $('#address').val('');
-                    $('#location').val('');
-                    $('#remark').val('');
-                },
-
-                error: function(xhr) {
-                    // Handle the error response
-                    console.log(xhr.responseText);
+        $("#form").validate({
+            rules: {
+                leadid: {
+                    required: true
+                    , minlength: 2
                 }
-            });
+                , date: {
+                    required: true
+                }
+                , leadsource: {
+                    required: true
+                }
+                , leadby: {
+                    required: true
+                }
+                , leadfor: {
+                    required: true
+                }
+                , leadtype: {
+                    required: true
+                }
+                , priority: {
+                    required: true
+                }
+                , status: {
+                    required: true
+                }
+                , companyname: {
+                    required: true
+                    , minlength: 2
+                }
+                , name: {
+                    required: true
+                    , minlength: 2
+                }
+                , email: {
+                    required: true
+                    , minlength: 6
+                }
+                , mobile: {
+                    required: true
+                    , minlength: 10
+                }
+                , whatsapp: {
+                    required: true
+                    , minlength: 10
+                }
+                , country: {
+                    required: true
+                }
+                , state: {
+                    required: true
+                }
+                , city: {
+                    required: true
+                }
+                , zip: {
+                    required: true
+                    , minlength: 5
+                }
+                , address: {
+                    required: true
+                    , minlength: 2
+                }
+                , location: {
+                    required: true
+                }
+                , remark: {
+                    required: true
+                    , minlength: 2
+                }
+            }
+            , messages: {
+                leadid: {
+                    required: "Please enter lead id"
+                }
+                , date: {
+                    required: "Please enter date"
+                }
+                , leadsource: {
+                    required: "Please select source"
+                }
+                , leadby: {
+                    required: "Please select lead by"
+                }
+                , leadfor: {
+                    required: "Please select lead for"
+                }
+                , leadtype: {
+                    required: "Please select lead type"
+                }
+                , priority: {
+                    required: "Please select priority"
+                }
+                , status: {
+                    required: "Please select status"
+                }
+                , companyname: {
+                    required: "Please enter company name"
+                }
+                , name: {
+                    required: "Please enter name"
+                }
+                , email: {
+                    required: "Please enter name"
+                }
+                , mobile: {
+                    required: "Please enter name"
+                }
+                , whatsapp: {
+                    required: "Please enter whatsapp number"
+                }
+                , country: {
+                    required: "Please select country"
+                }
+                , state: {
+                    required: "Please select state"
+                }
+                , city: {
+                    required: "Please select city"
+                }
+                , zip: {
+                    required: "Please entry city zip number"
+                }
+                , address: {
+                    required: "Please enter address"
+                }
+                , location: {
+                    required: "Please enter location"
+                }
+                , remark: {
+                    required: "Please fill remark"
+                }
+            }
+            , submitHandler: function(form) {
+                var formData = new FormData(form);
+                var id = $('#id').data('id');
+                console.log(formData);
+                console.log(id);
+
+                var url = `{{url("update-lead")}}/${id}`;
+
+
+                $.ajax({
+
+                    url: url
+                    , type: 'POST'
+                    , data: formData,
+
+                    contentType: false
+                    , processData: false
+                    , success: function(response) {
+                        window.location.href = '/leads';
+                    },
+
+                    error: function(xhr) {
+                        // Handle the error response
+                        console.log(xhr.responseText);
+                    }
+                });
+            }
         });
 
     });
 
 </script>
+@endpush
+@include('layouts.footers.auth.footer')
+
 @endsection

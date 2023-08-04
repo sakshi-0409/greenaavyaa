@@ -19,7 +19,7 @@
         <div class="col-3">
             <label for="workas" class="form-label">Work As A</label>
             <select name="workas" id="workas" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="Broker" {{@$broker->work_as === 'Broker' ? 'selected': ''}}>Broker</option>
                 <option value="Dealer" {{@$broker->work_as === 'Dealer' ? 'selected': ''}}>Dealer</option>
                 <option value="Agent" {{@$broker->work_as === 'Agent' ? 'selected': ''}}>Agent</option>
@@ -82,7 +82,7 @@
         <div class="col-md-3">
             <label for="country" class="form-label">Country</label>
             <select name="country" id="country" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option {{@$broker->country === 'India' ? 'selected': ''}}>India</option>
                 <option {{@$broker->country === 'Pakistan' ? 'selected': ''}}>Pakistan</option>
                 <option {{@$broker->country === 'Nepal' ? 'selected': ''}}>Nepal</option>
@@ -93,7 +93,7 @@
         <div class="col-md-3">
             <label for="State" class="form-label">State</label>
             <select name="state" id="State" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option {{@$broker->state === 'Madhya Pradesh' ? 'selected': ''}}>Madhya Pradesh</option>
                 <option {{@$broker->state === 'Rajasthan' ? 'selected': ''}}>Rajasthan</option>
                 <option {{@$broker->state === 'Gujrat' ? 'selected': ''}}>Gujrat</option>
@@ -104,7 +104,7 @@
         <div class="col-md-3">
             <label for="city" class="form-label">City</label>
             <select name="city" id="city" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option {{@$broker->city === 'Indore' ? 'selected': ''}}>Indore</option>
                 <option {{@$broker->city === 'Bhopal' ? 'selected': ''}}>Bhopal</option>
                 <option {{@$broker->city === 'Jabalpur' ? 'selected': ''}}>Jabalpur</option>
@@ -123,7 +123,7 @@
         <div class="col-md-3">
             <label for="identitytype" class="form-label">Identity Type</label>
             <select name="identitytype" id="identitytype" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option {{@$broker->identity_type === 'Pan Card' ? 'selected': ''}}>Pan Card</option>
                 <option {{@$broker->identity_type === 'Adhar Card' ? 'selected': ''}}>Adhar Card</option>
                 <option {{@$broker->identity_type === 'Voter Id' ? 'selected': ''}}>Voter Id</option>

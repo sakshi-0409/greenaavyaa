@@ -18,7 +18,7 @@
         <div class="col-3">
             <label for="source" class="form-label">Contact Source</label>
             <select name="source" id="source" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="Social Media" {{@$contact->source === 'Social Media' ? 'selected': ''}}>Social Media</option>
                 <option value="Digital Marketing" {{@$contact->source === 'Digital Marketing' ? 'selected': ''}}>Digital Marketing</option>
                 <option value="Networking" {{@$contact->source === 'Networking' ? 'selected': ''}}>Networking</option>
@@ -34,7 +34,7 @@
         <div class="col-3">
             <label for="contactof" class="form-label">Contact Of</label>
             <select name="contactof" id="contactof" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="Broker" {{@$contact->contact_of === 'Broker' ? 'selected': ''}}>Broker Name</option>
                 <option value="Dealer" {{@$contact->contact_of === 'Dealer' ? 'selected': ''}}>Dealer Name</option>
                 <option value="Agent" {{@$contact->contact_of === 'Agent' ? 'selected': ''}}>Agent's Name</option>
@@ -75,7 +75,7 @@
         <div class="col-md-3">
             <label for="country" class="form-label">Country</label>
             <select name="country" id="country" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option {{@$contact->country === 'India' ? 'selected': ''}}>India</option>
                 <option {{@$contact->country === 'Pakistan' ? 'selected': ''}}>Pakistan</option>
                 <option {{@$contact->country === 'Nepal' ? 'selected': ''}}>Nepal</option>
@@ -86,7 +86,7 @@
         <div class="col-md-3">
             <label for="State" class="form-label">State</label>
             <select name="state" id="State" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option {{@$contact->state === 'Madhya Pradesh' ? 'selected': ''}}>Madhya Pradesh</option>
                 <option {{@$contact->state === 'Rajasthan' ? 'selected': ''}}>Rajasthan</option>
                 <option {{@$contact->state === 'Gujrat' ? 'selected': ''}}>Gujrat</option>
@@ -97,7 +97,7 @@
         <div class="col-md-3">
             <label for="city" class="form-label">City</label>
             <select name="city" id="city" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option {{@$contact->city === 'Indore' ? 'selected': ''}}>Indore</option>
                 <option {{@$contact->city === 'Bhopal' ? 'selected': ''}}>Bhopal</option>
                 <option {{@$contact->city === 'Jabalpur' ? 'selected': ''}}>Jabalpur</option>
