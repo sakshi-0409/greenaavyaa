@@ -14,6 +14,7 @@ class propertyController extends Controller
         return view('pages/createproperty');
     }
     public function create_property(Request $request){
+        
         $property = new Properties;
         $property->property_id = $request->propertyid;
         $property->location = $request->location;
@@ -61,6 +62,7 @@ class propertyController extends Controller
         return view('pages/update-property')->with($data);
     }
     public function update_property(Request $request, string $id){
+      
         $property = Properties::find($id);
         // dd($lead);
     if ($property !== null) 

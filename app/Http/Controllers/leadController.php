@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Leads;
+use Illuminate\Support\Facades\Validator;
 
 class leadController extends Controller
 {

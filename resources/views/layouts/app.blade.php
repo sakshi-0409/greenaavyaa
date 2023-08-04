@@ -22,6 +22,12 @@
     <!-- CSS Files -->
     <link id="pagestyle" href="{{asset('assets/css/argon-dashboard.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+
+    <style>
+        .error{
+            color:red !important;
+        }
+    </style>
 </head>
 
 <body class="{{ $class ?? '' }}">
@@ -31,7 +37,7 @@
     <main class="main-content border-radius-lg">
         @yield('content')
     </main>
-@include('components.fixed-plugin')
+    @include('components.fixed-plugin')
     @endguest
 
     @auth
