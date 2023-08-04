@@ -148,14 +148,135 @@
         </div>
     </form>
 </div>
-@include('layouts.footers.auth.footer')
-</div>
+@push('js')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
 <script>
+   
     $(document).ready(function() {
+        $("#form").validate({
+            rules: {
+                brokerid: {
+                    required: true
+                    , minlength: 1
+                }
+                , date: {
+                    required: true
+                }
+                , workas: {
+                    required: true
+                }
+                , status: {
+                    required: true
+                }
+                , name: {
+                    required: true
+                }
+                , gender: {
+                    required: true
+                }
+                , dob: {
+                    required: true
+                }
+                , email: {
+                    required: true
+                    , minlength: 6
+                }
+                , mobile: {
+                    required: true
+                    , minlength: 10
+                }
+                , whatsapp: {
+                    required: true
+                    , minlength: 10
+                }
+                , country: {
+                    required: true
+                }
+                , state: {
+                    required: true
+                }
+                , city: {
+                    required: true
+                }
+                , zip: {
+                    required: true
+                    , minlength: 5
+                }
+                , address: {
+                    required: true
+                    , minlength: 2
+                }
+                , identitytype: {
+                    required: true
+                }
+                , identity: {
+                    required: true
+                }
+                , remark: {
+                    required: true
+                    , minlength: 2
+                }
+            }
+            , messages: {
+                brokerid: {
+                    required: "Please enter broker id"
+                }
+                , date: {
+                    required: "Please enter property date"
+                }
+                , workas: {
+                    required: "Please select one"
+                }
+                , status: {
+                    required: "Please select status"
+                }
+                , name: {
+                    required: "Please enter name"
+                }
+                , gender: {
+                    required: "Please select gender"
+                }
+                , dob: {
+                    required: "Please enter date of birth"
+                }
+                , email: {
+                    required: "Please enter email"
+                }
+                , mobile: {
+                    required: "Please enter mobile number"
+                }
+                , whatsapp: {
+                    required: "Please enter whatsapp number"
+                }
+                , country: {
+                    required: "Please select country"
+                }
+                , state: {
+                    required: "Please select state"
+                }
+                , city: {
+                    required: "Please select city"
+                }
+                , zip: {
+                    required: "Please entry city zip number"
+                }
+                , address: {
+                    required: "Please enter address"
+                }
+                , identitytype: {
+                    required: "Please select identity type"
+                }
+                , identity: {
+                    required: "Please attach identity"
+                }
+                , remark: {
+                    required: "Please fill remark"
+                }
+            }
 
-        $("#form").on('submit', function(e) {
-            e.preventDefault();
-            var formData = new FormData($(this)[0]);
+            , submitHandler: function(form) {
+                var formData = new FormData(form);
             console.log(formData);
             var imageFile = $('#identity')[0].files[0];
             var id = $('#id').data('id');
@@ -172,34 +293,20 @@
                 , processData: false
                 , success: function(response) {
                     // Handle the success response
-
-                    $('#brokerid').val('');
-                    $('#date').val('');
-                    $('#workas').val('');
-                    $('#status').val('');
-                    $('#name').val('');
-                    $('#gender').val('');
-                    $('#dob').val('');
-                    $('#email').val('');
-                    $('#mobile').val('');
-                    $('#whatsapp').val('');
-                    $('#country').val('');
-                    $('#State').val('');
-                    $('#city').val('');
-                    $('#Zip').val('');
-                    $('#address').val('');
-                    $('#identitytype').val('');
-                    $('#identity').val('');
-                    $('#remark').val('');
+                    window.location.href = '/brokers';
                 }
                 , error: function(xhr) {
                     // Handle the error response
                     console.log(xhr.responseText);
                 }
             });
+        }
         });
 
     });
 
 </script>
+@endpush
+@include('layouts.footers.auth.footer')
+
 @endsection

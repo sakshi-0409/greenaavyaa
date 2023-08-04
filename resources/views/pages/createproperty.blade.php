@@ -323,11 +323,9 @@
             rules: {
                 propertyid: {
                     required: true
-                    , minlength: 2
                 }
                 , propertydate: {
                     required: true
-                    , minlength: 2
                 }
                 , propertyby: {
                     required: true
@@ -378,15 +376,15 @@
                 }
                 , owneremail: {
                     required: true
-                    , minlength: 2
+                    , minlength: 6
                 }
                 , ownermobile: {
                     required: true
-                    , minlength: 2
+                    , minlength: 10
                 }
                 , ownerwhatsapp: {
                     required: true
-                    , minlength: 2
+                    , minlength: 10
                 }
                 , brokername: {
                     required: true
@@ -394,15 +392,15 @@
                 }
                 , brokeremail: {
                     required: true
-                    , minlength: 2
+                    , minlength: 6
                 }
                 , brokernumber: {
                     required: true
-                    , minlength: 2
+                    , minlength: 10
                 }
                 , brokerwhatsapp: {
                     required: true
-                    , minlength: 2
+                    , minlength: 10
                 }
                 , country: {
                     required: true
@@ -415,15 +413,19 @@
                 }
                 , zip: {
                     required: true
-                    , minlength: 2
+                    , minlength: 5
                 }
                 , address: {
                     required: true
-                    , minlength: 2
+                    , minlength: 5
                 }
                 , location: {
                     required: true
-                    , minlength: 2
+                    , minlength: 5
+                }
+                , remark: {
+                    required: true
+                    , minlength: 5
                 }
             }
             , messages: {
@@ -515,6 +517,12 @@
                 }
                 , address: {
                     required: "Please enter property address"
+                }
+                , location: {
+                    required: "Please enter property location"
+                }
+                , remark: {
+                    required: "Please enter remark"
                 }
             }
             // , submitHandler: function(e) {

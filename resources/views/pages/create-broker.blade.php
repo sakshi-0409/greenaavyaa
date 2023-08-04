@@ -29,7 +29,7 @@
         <div class="col-3">
             <label for="workas" class="form-label">Work As A</label>
             <select name="workas" id="workas" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="Broker">Broker</option>
                 <option value="Dealer">Dealer</option>
                 <option value="Agent">Agent</option>
@@ -126,7 +126,7 @@
         <div class="col-md-3">
             <label for="country" class="form-label">Country</label>
             <select name="country" id="country" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option>India</option>
                 <option>Pakistan</option>
                 <option>Nepal</option>
@@ -137,7 +137,7 @@
         <div class="col-md-3">
             <label for="State" class="form-label">State</label>
             <select name="state" id="State" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option>Madhya Pradesh</option>
                 <option>Rajasthan</option>
                 <option>Gujrat</option>
@@ -148,7 +148,7 @@
         <div class="col-md-3">
             <label for="city" class="form-label">City</label>
             <select name="city" id="city" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option>Indore</option>
                 <option>Bhopal</option>
                 <option>Jabalpur</option>
@@ -177,7 +177,7 @@
         <div class="col-md-3">
             <label for="identitytype" class="form-label">Identity Type</label>
             <select name="identitytype" id="identitytype" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option>Pan Card</option>
                 <option>Adhar Card</option>
                 <option>Voter Id</option>
@@ -212,57 +212,161 @@
         </div>
     </form>
 </div>
-@include('layouts.footers.auth.footer')
-</div>
+@push('js')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
 <script>
     $(document).ready(function() {
-
-        $("#form").on('submit', function(e) {
-            e.preventDefault();
-            var formData = new FormData($(this)[0]);
-            console.log(formData);
-            var imageFile = $('#identity')[0].files[0];
-            formData.append('identity', imageFile);
-            var url = '{{url("createbroker")}}';
-
-            $.ajax({
-
-                url: url
-                , type: 'POST'
-                , data: formData,
-
-                contentType: false
-                , processData: false
-                , success: function(response) {
-                    // Handle the success response
-
-                    $('#brokerid').val('');
-                    $('#date').val('');
-                    $('#workas').val('');
-                    $('#status').val('');
-                    $('#name').val('');
-                    $('#gender').val('');
-                    $('#dob').val('');
-                    $('#email').val('');
-                    $('#mobile').val('');
-                    $('#whatsapp').val('');
-                    $('#country').val('');
-                    $('#State').val('');
-                    $('#city').val('');
-                    $('#Zip').val('');
-                    $('#address').val('');
-                    $('#identitytype').val('');
-                    $('#identity').val('');
-                    $('#remark').val('');
+        $("#form").validate({
+            rules: {
+                brokerid: {
+                    required: true
+                    , minlength: 1
                 }
-                , error: function(xhr) {
-                    // Handle the error response
-                    console.log(xhr.responseText);
+                , date: {
+                    required: true
                 }
-            });
+                , workas: {
+                    required: true
+                }
+                , status: {
+                    required: true
+                }
+                , name: {
+                    required: true
+                }
+                , gender: {
+                    required: true
+                }
+                , dob: {
+                    required: true
+                }
+                , email: {
+                    required: true
+                    , minlength: 6
+                }
+                , mobile: {
+                    required: true
+                    , minlength: 10
+                }
+                , whatsapp: {
+                    required: true
+                    , minlength: 10
+                }
+                , country: {
+                    required: true
+                }
+                , state: {
+                    required: true
+                }
+                , city: {
+                    required: true
+                }
+                , zip: {
+                    required: true
+                    , minlength: 5
+                }
+                , address: {
+                    required: true
+                    , minlength: 2
+                }
+                , identitytype: {
+                    required: true
+                }
+                , identity: {
+                    required: true
+                }
+                , remark: {
+                    required: true
+                    , minlength: 2
+                }
+            }
+            , messages: {
+                brokerid: {
+                    required: "Please enter broker id"
+                }
+                , date: {
+                    required: "Please enter property date"
+                }
+                , workas: {
+                    required: "Please select one"
+                }
+                , status: {
+                    required: "Please select status"
+                }
+                , name: {
+                    required: "Please enter name"
+                }
+                , gender: {
+                    required: "Please select gender"
+                }
+                , dob: {
+                    required: "Please enter date of birth"
+                }
+                , email: {
+                    required: "Please enter email"
+                }
+                , mobile: {
+                    required: "Please enter mobile number"
+                }
+                , whatsapp: {
+                    required: "Please enter whatsapp number"
+                }
+                , country: {
+                    required: "Please select country"
+                }
+                , state: {
+                    required: "Please select state"
+                }
+                , city: {
+                    required: "Please select city"
+                }
+                , zip: {
+                    required: "Please entry city zip number"
+                }
+                , address: {
+                    required: "Please enter address"
+                }
+                , identitytype: {
+                    required: "Please select identity type"
+                }
+                , identity: {
+                    required: "Please attach identity"
+                }
+                , remark: {
+                    required: "Please fill remark"
+                }
+            }
+
+            , submitHandler: function(form) {
+                var formData = new FormData(form);
+                console.log(formData);
+                var imageFile = $('#identity')[0].files[0];
+                formData.append('identity', imageFile);
+                var url = '{{url("createbroker")}}';
+
+                $.ajax({
+
+                    url: url
+                    , type: 'POST'
+                    , data: formData,
+
+                    contentType: false
+                    , processData: false
+                    , success: function(response) {
+                        $('#form').trigger('reset');
+                    }
+                    , error: function(xhr) {
+                        console.log(xhr.responseText);
+                    }
+                });
+            }
         });
 
     });
 
 </script>
+@endpush
+@include('layouts.footers.auth.footer')
+
 @endsection
