@@ -38,9 +38,9 @@
                 <option value="Broker">Broker Name</option>
                 <option value="Dealer">Dealer Name</option>
                 <option value="Agent">Agent's Name</option>
-                <option value="Realtor">Company Name</option>
-                <option value="Builder">Investor</option>
-                <option value="Coloniser">Any Other</option>
+                <option value="Company">Company Name</option>
+                <option value="Investor">Investor</option>
+                <option value="Any other">Any Other</option>
             </select>
         </div>
 

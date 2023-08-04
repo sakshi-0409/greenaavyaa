@@ -525,10 +525,7 @@
                     required: "Please enter remark"
                 }
             }
-            // , submitHandler: function(e) {
-            //     e.preventDefault();
-            //     console.log('validated');
-            //     var formData = new FormData(form[0]);
+        
             , submitHandler: function(form) {
                 var formData = new FormData(form);
                 console.log(formData);

@@ -38,9 +38,9 @@
                 <option value="Broker" {{@$contact->contact_of === 'Broker' ? 'selected': ''}}>Broker Name</option>
                 <option value="Dealer" {{@$contact->contact_of === 'Dealer' ? 'selected': ''}}>Dealer Name</option>
                 <option value="Agent" {{@$contact->contact_of === 'Agent' ? 'selected': ''}}>Agent's Name</option>
-                <option value="Realtor" {{@$contact->contact_of === 'Realtor' ? 'selected': ''}}>Company Name</option>
-                <option value="Builder" {{@$contact->contact_of === 'Builder' ? 'selected': ''}}>Investor</option>
-                <option value="Coloniser" {{@$contact->contact_of === 'Coloniser' ? 'selected': ''}}>Any Other</option>
+                <option value="Company" {{@$contact->contact_of === 'Realtor' ? 'selected': ''}}>Company Name</option>
+                <option value="Investor" {{@$contact->contact_of === 'Builder' ? 'selected': ''}}>Investor</option>
+                <option value="Any other" {{@$contact->contact_of === 'Coloniser' ? 'selected': ''}}>Any Other</option>
             </select>
         </div>
 
