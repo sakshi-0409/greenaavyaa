@@ -18,7 +18,7 @@
         <div class="col-3">
             <label for="source" class="form-label">Contact Source</label>
             <select name="source" id="source" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="Social Media">Social Media</option>
                 <option value="Digital Marketing">Digital Marketing</option>
                 <option value="Networking">Networking</option>
@@ -34,7 +34,7 @@
         <div class="col-3">
             <label for="contactof" class="form-label">Contact Of</label>
             <select name="contactof" id="contactof" class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option selected></option>
                 <option value="Broker">Broker Name</option>
                 <option value="Dealer">Dealer Name</option>
                 <option value="Agent">Agent's Name</option>
@@ -75,7 +75,7 @@
         <div class="col-md-3">
             <label for="country" class="form-label">Country</label>
             <select name="country" id="country" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option>India</option>
                 <option>Pakistan</option>
                 <option>Nepal</option>
@@ -86,7 +86,7 @@
         <div class="col-md-3">
             <label for="State" class="form-label">State</label>
             <select name="state" id="State" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option>Madhya Pradesh</option>
                 <option>Rajasthan</option>
                 <option>Gujrat</option>
@@ -97,7 +97,7 @@
         <div class="col-md-3">
             <label for="city" class="form-label">City</label>
             <select name="city" id="city" class="form-select">
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option>Indore</option>
                 <option>Bhopal</option>
                 <option>Jabalpur</option>
@@ -130,54 +130,152 @@
         </div>
     </form>
 </div>
-@include('layouts.footers.auth.footer')
-</div>
+@push('js')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
 <script>
     $(document).ready(function() {
-
-        $("#form").on('submit', function(e) {
-            e.preventDefault();
-            var formData = new FormData($(this)[0]);
-            console.log(formData);
-
-            var url = '{{url("create-contact")}}';
-
-            $.ajax({
-
-                url: url
-                , type: 'POST'
-                , data: formData,
-
-                contentType: false
-                , processData: false
-                , success: function(response) {
-                    // Handle the success response
-
-                    $('#contactid').val('');
-                    $('#date').val('');
-                    $('#source').val('');
-                    $('#contactof').val('');
-                    $('#companyname').val('');
-                    $('#name').val('');
-                    $('#email').val('');
-                    $('#mobile').val('');
-                    $('#whatsapp').val('');
-                    $('#country').val('');
-                    $('#State').val('');
-                    $('#city').val('');
-                    $('#Zip').val('');
-                    $('#address').val('');
-                    $('#location').val('');
-                    $('#remark').val('');
+        $("#form").validate({
+            rules: {
+                contactid: {
+                    required: true
+                    , minlength: 1
                 }
-                , error: function(xhr) {
-                    // Handle the error response
-                    console.log(xhr.responseText);
+                , date: {
+                    required: true
                 }
-            });
+                , source: {
+                    required: true
+                }
+                , contactof: {
+                    required: true
+                }
+                , companyname: {
+                    required: true
+                }
+                , name: {
+                    required: true
+                }
+                , email: {
+                    required: true
+                    , minlength: 6
+                }
+                , mobile: {
+                    required: true
+                    , minlength: 10
+                }
+                , whatsapp: {
+                    required: true
+                    , minlength: 10
+                }
+                , country: {
+                    required: true
+                }
+                , state: {
+                    required: true
+                }
+                , city: {
+                    required: true
+                }
+                , zip: {
+                    required: true
+                    , minlength: 5
+                }
+                , address: {
+                    required: true
+                    , minlength: 2
+                }
+                , location: {
+                    required: true
+                }
+                , remark: {
+                    required: true
+                    , minlength: 2
+                }
+            }
+            , messages: {
+                contactid: {
+                    required: "Please enter contact id"
+                }
+                , date: {
+                    required: "Please enter contact date"
+                }
+                , source: {
+                    required: "Please select source"
+                }
+                , contactof: {
+                    required: "Please select one"
+                }
+                , companyname: {
+                    required: "Please enter company name"
+                }
+                , name: {
+                    required: "Please enter name"
+                }
+                , email: {
+                    required: "Please enter email"
+                }
+                , mobile: {
+                    required: "Please enter mobile number"
+                }
+                , whatsapp: {
+                    required: "Please enter whatsapp number"
+                }
+                , country: {
+                    required: "Please select country"
+                }
+                , state: {
+                    required: "Please select state"
+                }
+                , city: {
+                    required: "Please select city"
+                }
+                , zip: {
+                    required: "Please entry city zip number"
+                }
+                , address: {
+                    required: "Please enter address"
+                }
+                , location: {
+                    required: "Please enter location"
+                }
+                , remark: {
+                    required: "Please fill remark"
+                }
+            }
+
+            , submitHandler: function(form) {
+                var formData = new FormData(form);
+                console.log(formData);
+
+                var url = '{{url("create-contact")}}';
+
+                $.ajax({
+
+                    url: url
+                    , type: 'POST'
+                    , data: formData,
+
+                    contentType: false
+                    , processData: false
+                    , success: function(response) {
+                        // Handle the success response
+
+                        $('#form').trigger('reset');
+
+                    }
+                    , error: function(xhr) {
+                        // Handle the error response
+                        console.log(xhr.responseText);
+                    }
+                });
+            }
         });
 
     });
 
 </script>
+@endpush
+@include('layouts.footers.auth.footer')
+
 @endsection
