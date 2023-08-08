@@ -160,8 +160,8 @@
             <label for="availability" class="form-label">Availability</label>
             <select name="availability" id="availability" class="form-select" aria-label="Default select example">
                 <option selected></option>
-                <option value="Availabile">Availabile</option>
-                <option value="Not Availabile">Not Availabile</option>
+                <option value="Availabile">Available</option>
+                <option value="Not Availabile">Not Available</option>
             </select>
         </div>
         <div class="col-3">
