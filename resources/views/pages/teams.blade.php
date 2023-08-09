@@ -9,7 +9,6 @@
                 <div class="card-header pb-0">
                     <h6>Teams</h6>
                     <a class="border p-1 rounded" href="{{url('create-teamname')}}">Create New Team</a>&nbsp;&nbsp;
-                    <a class="border p-1 rounded" href="{{url('teams')}}">List All Teams</a>&nbsp;&nbsp;
                     <a class="border p-1 rounded" href="{{url('create-team')}}">Create New Team Member</a>
                 </div>
 
