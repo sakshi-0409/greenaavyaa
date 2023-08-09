@@ -108,7 +108,7 @@ class propertyController extends Controller
         }
     else{
             // return  response()->json(['msg'=>'successfull']);
-            dd('else');
+           return redirect()->back();
         }
     }
     public function delete_property(Request $request){

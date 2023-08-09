@@ -6,64 +6,50 @@
     <div class="row">
         <div class="col-12">
             <div class="card mb-4">
-                <div class="card-header pb-2">
-                    <h6>Brokers</h6><a class="border" href="{{url('createbroker')}}">Create New Broker</a>
+                <div class="card-header pb-0">
+                    <h6>Teams</h6><a class="border" href="{{url('create-team')}}">Create New Team</a>
                 </div>
 
-                <div class="card-body px-0 pt-0 pb-2">
+                <div class="card-body col-12 px-0 pt-0 pb-2">
                     <div class="table-responsive p-2">
                         <table id="myTable" class="table align-items-center mb-0">
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Broker id</th>
+                                        Name</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                        Contact</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Broker Name</th>
-
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Mobile Number</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Email</th>
-
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Date Of Birth</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Status</th>
+                                        Department</th>
+                                    
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $brokers = App\Models\Brokers::all() ?>
-                                @foreach ($brokers as $broker)
+                                <?php $teams = App\Models\Team::all() ?>
+                                @foreach ($teams as $team)
 
                                 <tr>
 
                                     <td>
-                                        <p class="text-xs font-weight-bold mb-0">{{$broker->brokerid}}</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{$team->name}}</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{$team->designation}}</p>
+                                    </td>
+                                    
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">{{$team->mobile}}</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{$team->email}}</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">{{$team->department}}</p>
                                     </td>
 
-                                    <td>
-                                        <p class="text-xs font-weight-bold mb-0">{{$broker->name}}</p>
-                                    </td>
-                                    <td>
-                                        <p class="text-xs font-weight-bold mb-0">{{$broker->mobile}}</p>
-                                    </td>
-
-                                    <td>
-                                        <p class="text-xs font-weight-bold mb-0">{{$broker->email}}</p>
-                                    </td>
-                                    <td>
-                                        <p class="text-xs font-weight-bold mb-0">{{$broker->dob}}</p>
-                                    </td>
-                                    <td>
-                                        <p class="badge badge-sm bg-gradient-success text-xs font-weight-bold mb-0">{{$broker->status}}</p>
-                                    </td>
+                                    
                                     <td class="align-middle text-center text-sm">
-                                        <span class="cursor-pointer badge badge-sm bg-gradient-success edit" data-id="{{$broker->id}}"><a href="{{url('editbroker')}}/{{$broker->id}}">Edit</a></span>
-                                        <span class="cursor-pointer badge badge-sm bg-gradient-danger delete" data-id="{{$broker->id}}">Delete</span>
+                                        <span class="cursor-pointer badge badge-sm bg-gradient-success edit" data-id="{{$team->id}}"><a href="{{url('edit-team')}}/{{$team->id}}">Edit</a></span>
+                                        <span class="cursor-pointer badge badge-sm bg-gradient-danger delete" data-id="{{$team->id}}">Delete</span>
                                     </td>
-
 
                                 </tr>
 
@@ -89,7 +75,7 @@
             e.preventDefault();
             var row = $(this).closest('tr');
             var id = $(this).data('id');
-            var url = `{{ url('/deletebroker') }}/?id=${id}`;
+            var url = `{{ url('/deleteteam') }}/?id=${id}`;
 
             console.log(url);
             $.ajax({

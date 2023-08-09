@@ -6,6 +6,7 @@ use App\Http\Controllers\leadController;
 use App\Http\Controllers\brokersController;
 use App\Http\Controllers\propertyController;
 use App\Http\Controllers\contactController;
+use App\Http\Controllers\teamController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth;
 
@@ -66,14 +67,21 @@ Route::get('/editcontact/{id}', [contactController::class,'edit_contact'])->name
 Route::post('/update-contact/{id}', [contactController::class,'update_contact'])->name('updatecontact');
 Route::get('/deletecontact', [contactController::class,'delete_contact'])->name('deletecontact');
 
+Route::get('/team', [teamController::class,'team'])->name('team');
+Route::get('/create-team', [teamController::class,'create_team'])->name('create-team');
+Route::post('/create-team', [teamController::class,'createteam'])->name('createteam');
+Route::get('/edit-team/{id}', [teamController::class,'editteam'])->name('editteam');
+Route::post('/update-team/{id}', [teamController::class,'updateteam'])->name('updateteam');
+Route::get('/deleteteam', [teamController::class,'deleteteam'])->name('deleteteam');
+
 });
 
 Route::get('/user-profile', [adminController::class,'user_management'])->name('profile-static');
 Route::get('/virtual-reality', [adminController::class,'user_management'])->name('virtual-reality');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('home');
+    return view('pages/dashboard');
+})->name('home');
 
 // Route::post('register',[RegisteredUserController::class,'store'])->name('register');
 

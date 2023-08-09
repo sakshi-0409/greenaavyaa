@@ -3,72 +3,57 @@
 @section('content')
 @include('layouts.navbars.auth.topnav', ['title' => 'Tables'])
 <div class="container">
-    <a href="{{url('brokers')}}">List All Brokers</a>
     <div class="row">
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h4>Create Broker</h4>
-                    <form id="form" enctype="multipart/form-data" class="row g-3">
+                    <a href="{{url('team')}}">List All Teams</a>
+                    <h4>Create Team</h4>
+                    <form id="form" method="post" enctype="multipart/form-data" class="row g-3">
                         @csrf
                         <div class="col-md-3">
-                            <label for="brokerid" class="form-label">Broker Id</label>
-                            <input name="brokerid" type="text" class="form-control" placeholder="#####" id="brokerid">
-                            <span class="text-danger">
-                                @error('brokerid')
-                                {{ $message }}
-                                @enderror
-                            </span>
+                            <label for="teamid" class="form-label">Team Id</label>
+                            <input name="teamid" type="text" class="form-control" placeholder="#####" id="teamid">
                         </div>
                         <div class="col-md-3">
                             <label for="date" class="form-label">Joining Date</label>
                             <input name="date" type="date" class="form-control" id="date">
-                            <span class="text-danger m-0">
-                                @error('date')
-                                {{ $message }}
-                                @enderror
-                            </span>
                         </div>
-
                         <div class="col-3">
-                            <label for="workas" class="form-label">Work As A</label>
-                            <select name="workas" id="workas" class="form-select" aria-label="Default select example">
+                            <label for="department" class="form-label">Department</label>
+                            <select name="department" id="department" class="form-select" aria-label="Default select example">
                                 <option selected></option>
-                                <option value="Broker">Broker</option>
-                                <option value="Dealer">Dealer</option>
-                                <option value="Agent">Agent</option>
-                                <option value="Realtor">Realtor</option>
-                                <option value="Builder">Builder</option>
-                                <option value="Coloniser">Coloniser</option>
-                                <option value="Developer">Developer</option>
-                                <option value="Real Estate Company">Real Estate Company</option>
-                                <option value="Others">Others</option>
+                                <option value="Sales">Sales</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Accounts">Accounts</option>
+                                <option value="Administrative">Administrative</option>
+                                <option value="Human Resource">Human Resource</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Customer Service">Customer Service</option>
+                                <option value="Media Relation">Media Relation</option>
+                                <option value="Legal & Advisory">Legal & Advisory</option>
+                                <option value="Security">Security</option>
+                                <option value="others">Others</option>
                             </select>
                         </div>
                         <div class="col-3">
-                            <label for="status" class="form-label">Status</label>
-                            <div>
-
-                                <input class="form-check-input" type="radio" name="status" id="status" value="active" aria-label="...">
-                                <label for="status" class="form-label">Active</label>
-                                <input class="form-check-input" type="radio" name="status" id="status" value="inactive" aria-label="...">
-                                <label for="status" class="form-label">Inactive</label>
-                            </div>
-                            <span class="text-danger m-0">
-                                @error('date')
-                                {{ $message }}
-                                @enderror
-                            </span>
+                            <label for="designation" class="form-label">Designation</label>
+                            <select name="designation" id="designation" class="form-select" aria-label="Default select example">
+                                <option selected></option>
+                                <option value="Sales Executive">Sales Executive</option>
+                                <option value="Marketing Executive">Marketing Executive</option>
+                                <option value="Sales Manager">Sales Manager</option>
+                                <option value="Marketing Manager">Marketing Manager</option>
+                                <option value="Account Executive">Account Executive</option>
+                                <option value="Office Assistance">Office Assistance</option>
+                                <option value="Personal Assistance">Personal Assistance</option>
+                                <option value="Bussiness Developer">Bussiness Developer</option>
+                                <option value="Others">Others</option>
+                            </select>
                         </div>
-
                         <div class="col-md-6">
-                            <label for="name" class="form-label"> Name</label>
+                            <label for="name" class="form-label">Person Name</label>
                             <input name="name" type="text" class="form-control" placeholder="Name" id="name">
-                            <span class="text-danger m-0">
-                                @error('date')
-                                {{ $message }}
-                                @enderror
-                            </span>
                         </div>
                         <div class="col-3">
                             <label for="gender" class="form-label">Gender</label>
@@ -80,53 +65,52 @@
                                 <input class="form-check-input" type="radio" name="gender" id="gender" value="others" aria-label="...">
                                 <label for="gender" class="form-label">Others</label>
                             </div>
-                            <span class="text-danger m-0">
-                                @error('date')
-                                {{ $message }}
-                                @enderror
-                            </span>
                         </div>
                         <div class="col-md-3">
                             <label for="dob" class="form-label">Date Of Birth</label>
                             <input name="dob" type="date" class="form-control" id="dob">
-                            <span class="text-danger m-0">
-                                @error('date')
-                                {{ $message }}
-                                @enderror
-                            </span>
                         </div>
 
                         <div class="col-md-6">
                             <label for="email" class="form-label">Email</label>
                             <input name="email" type="email" placeholder="Email" class="form-control" id="email">
-                            <span class="text-danger m-0">
-                                @error('date')
-                                {{ $message }}
-                                @enderror
-                            </span>
                         </div>
                         <div class="col-md-3">
-                            <label for="mobile" class="form-label">Mobile No.</label>
-                            <input name="mobile" type="text" placeholder="Mobile No." class="form-control" id="mobile">
-                            <span class="text-danger m-0">
-                                @error('date')
-                                {{ $message }}
-                                @enderror
-                            </span>
+                            <label for="mobnumber" class="form-label">Mobile No.</label>
+                            <input name="mobile" type="text"  placeholder="Mobile No." class="form-control" id="mobnumber">
                         </div>
                         <div class="col-md-3">
-                            <label for="whatsapp" class="form-label">Whatsapp No.</label>
-                            <input name="whatsapp" type="text" placeholder="Whatsapp No." class="form-control" id="whatsapp">
-                            <span class="text-danger m-0">
-                                @error('date')
-                                {{ $message }}
-                                @enderror
-                            </span>
+                            <label for="wpnumber" class="form-label">Whatsapp No.</label>
+                            <input name="whatsapp" type="text"  placeholder="Whatsapp No." class="form-control" id="wpnumber">
                         </div>
-
-
-
-
+                        <div class="col-md-3">
+                            <label for="education" class="form-label">Education</label>
+                            <select name="education" id="education" class="form-select">
+                                <option selected></option>
+                                <option>Matriculation</option>
+                                <option>Intermediate</option>
+                                <option>Graduate</option>
+                                <option>Post Graduate</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <label for="status" class="form-label">Status</label>
+                            <div>
+                                <input class="form-check-input" type="radio" name="status" id="status" value="active" aria-label="...">
+                                <label for="status" class="form-label">Active</label>
+                                <input class="form-check-input" type="radio" name="status" id="status" value="inactive" aria-label="...">
+                                <label for="status" class="form-label">Inactive</label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="identity" class="form-label">Identity Upload</label>
+                            <input name="identity" type="file" class="form-control" placeholder="Property Address" id="identity">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="resume" class="form-label">Resume Upload</label>
+                            <input name="resume" type="file" class="form-control" placeholder="Property Address" id="resume">
+                        </div>
                         <div class="col-md-3">
                             <label for="country" class="form-label">Country</label>
                             <select name="country" id="country" class="form-select">
@@ -138,6 +122,7 @@
                                 <option>SriLanka</option>
                             </select>
                         </div>
+
                         <div class="col-md-3">
                             <label for="State" class="form-label">State</label>
                             <select name="state" id="State" class="form-select">
@@ -149,6 +134,7 @@
                                 <option>Maharashtra</option>
                             </select>
                         </div>
+
                         <div class="col-md-3">
                             <label for="city" class="form-label">City</label>
                             <select name="city" id="city" class="form-select">
@@ -160,54 +146,22 @@
                                 <option>Dewas</option>
                             </select>
                         </div>
+
                         <div class="col-md-3">
-                            <label for="zip" class="form-label">Zip</label>
-                            <input name="zip" type="text" class="form-control" placeholder="Zip" id="Zip">
-                            <span class="text-danger m-0">
-                                @error('date')
-                                {{ $message }}
-                                @enderror
-                            </span>
+                            <label for="inputZip" class="form-label">Zip</label>
+                            <input name="zip"  type="text" class="form-control" placeholder="Zip" id="Zip">
                         </div>
                         <div class="col-md-6">
-                            <label for="address" class="form-label">Address</label>
-                            <input name="address" type="text" class="form-control" placeholder="Property Address" id="address">
-                            <span class="text-danger m-0">
-                                @error('date')
-                                {{ $message }}
-                                @enderror
-                            </span>
+                            <label for="current_address" class="form-label">Current Address</label>
+                            <input name="current_address"  type="text" class="form-control" placeholder="Property Address" id="current_address">
                         </div>
-                        <div class="col-md-3">
-                            <label for="identitytype" class="form-label">Identity Type</label>
-                            <select name="identitytype" id="identitytype" class="form-select">
-                                <option selected></option>
-                                <option>Pan Card</option>
-                                <option>Adhar Card</option>
-                                <option>Voter Id</option>
-                                <option>Passport</option>
-                                <option>Bank Passbook</option>
-                                <option>Driving License</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="identity" class="form-label">Identity Upload</label>
-                            <input name="identity" type="file" class="form-control" placeholder="Property Address" id="identity">
-                            <span class="text-danger m-0">
-                                @error('date')
-                                {{ $message }}
-                                @enderror
-                            </span>
+                        <div class="col-md-6">
+                            <label for="permanent_address" class="form-label">Permanent Address</label>
+                            <input name="permanent_address"  type="text" class="form-control" placeholder="Property Location" id="permanent_address">
                         </div>
                         <div class="col-md-12">
                             <label for="remark">Remark</label>
                             <textarea name="remark" class="form-control" placeholder="Comment Related To Lead" id="remark"></textarea>
-                            <span class="text-danger m-0">
-                                @error('date')
-                                {{ $message }}
-                                @enderror
-                            </span>
                         </div>
 
                         <div class="col-3">
@@ -223,21 +177,23 @@
 @push('js')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+
 <script>
     $(document).ready(function() {
+
         $("#form").validate({
             rules: {
-                brokerid: {
+                teamid: {
                     required: true
-                    , minlength: 1
+                    , minlength: 2
                 }
                 , date: {
                     required: true
                 }
-                , workas: {
+                , department: {
                     required: true
                 }
-                , status: {
+                , designation: {
                     required: true
                 }
                 , name: {
@@ -251,8 +207,8 @@
                 }
                 , email: {
                     required: true
-                    , minlength: 6
                 }
+                
                 , mobile: {
                     required: true
                     , minlength: 10
@@ -260,6 +216,18 @@
                 , whatsapp: {
                     required: true
                     , minlength: 10
+                }
+                , education: {
+                    required: true
+                }
+                , status: {
+                    required: true
+                }
+                , identity: {
+                    required: true
+                }
+                , resume: {
+                    required: true
                 }
                 , country: {
                     required: true
@@ -274,14 +242,11 @@
                     required: true
                     , minlength: 5
                 }
-                , address: {
+                , current_address: {
                     required: true
                     , minlength: 2
                 }
-                , identitytype: {
-                    required: true
-                }
-                , identity: {
+                , permanent_address: {
                     required: true
                 }
                 , remark: {
@@ -290,17 +255,17 @@
                 }
             }
             , messages: {
-                brokerid: {
-                    required: "Please enter broker id"
+                teamid: {
+                    required: "Please enter team id"
                 }
                 , date: {
-                    required: "Please enter property date"
+                    required: "Please enter joining date"
                 }
-                , workas: {
-                    required: "Please select one"
+                , department: {
+                    required: "Please select department"
                 }
-                , status: {
-                    required: "Please select status"
+                , designation: {
+                    required: "Please select designation"
                 }
                 , name: {
                     required: "Please enter name"
@@ -314,11 +279,24 @@
                 , email: {
                     required: "Please enter email"
                 }
+               
                 , mobile: {
                     required: "Please enter mobile number"
                 }
                 , whatsapp: {
                     required: "Please enter whatsapp number"
+                }
+                , education: {
+                    required: "Please select education"
+                }
+                , status: {
+                    required: "Please select status"
+                }
+                , identity: {
+                    required: "Please attach identity file"
+                }
+                , resume: {
+                    required: "Please select resume"
                 }
                 , country: {
                     required: "Please select country"
@@ -332,26 +310,22 @@
                 , zip: {
                     required: "Please entry city zip number"
                 }
-                , address: {
+                , current_address: {
                     required: "Please enter address"
                 }
-                , identitytype: {
-                    required: "Please select identity type"
-                }
-                , identity: {
-                    required: "Please attach identity"
+                , permanent_address: {
+                    required: "Please enter location"
                 }
                 , remark: {
                     required: "Please fill remark"
                 }
             }
-
             , submitHandler: function(form) {
                 var formData = new FormData(form);
                 console.log(formData);
-                var imageFile = $('#identity')[0].files[0];
-                formData.append('identity', imageFile);
-                var url = '{{url("createbroker")}}';
+
+                var url = '{{url("create-team")}}';
+
 
                 $.ajax({
 
@@ -364,17 +338,16 @@
                     , success: function(response) {
                         $('#form').trigger('reset');
                     }
-                    , error: function(xhr) {
-                        console.log(xhr.responseText);
+                    , error: function(xhr, status, error) {
+                        // Handle error response
+                        console.error("Error saving user data:", error);
                     }
                 });
             }
         });
-
     });
 
 </script>
 @endpush
 @include('layouts.footers.auth.footer')
-
 @endsection
