@@ -7,7 +7,7 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h6>Leads</h6><a class="border" href="{{url('createlead')}}">Create New Lead</a>
+                    <h6>Leads</h6><a class="border p-1 rounded" href="{{url('createlead')}}">Create New Lead</a>
                 </div>
 
                 <div class="card-body px-0 pt-0 pb-2">

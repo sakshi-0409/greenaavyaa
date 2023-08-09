@@ -8,7 +8,7 @@
             <div class="card mb-4">
                 <div class="card-header pb-0">
                     <h6>Contacts</h6>
-                    <a href="{{url('create-contact')}}">Create New Contact</a>
+                    <a class="border p-1 rounded" href="{{url('create-contact')}}">Create New Contact</a>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-2">

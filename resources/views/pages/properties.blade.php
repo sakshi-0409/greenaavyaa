@@ -7,7 +7,7 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-2">
-                    <h6>Properties</h6><a class="border" href="{{url('createproperty')}}">Create property</a>
+                    <h6>Properties</h6><a class="border p-1 rounded"  href="{{url('createproperty')}}">Create property</a>
                 </div>
 
                 <div class="card-body px-0 pt-0 pb-2">

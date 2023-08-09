@@ -7,7 +7,7 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-2">
-                    <h6>Brokers</h6><a class="border" href="{{url('createbroker')}}">Create New Broker</a>
+                    <h6>Brokers</h6><a class="border p-1 rounded" href="{{url('createbroker')}}">Create New Broker</a>
                 </div>
 
                 <div class="card-body px-0 pt-0 pb-2">

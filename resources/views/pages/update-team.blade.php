@@ -7,13 +7,19 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <a href="{{url('team')}}">List All Teams</a>
+                    <a href="{{url('teams')}}">List All Teams</a>
                     <h4>Update Team</h4>
                     <form id="form" method="post" enctype="multipart/form-data" class="row g-3">
                         @csrf
                         <div class="col-md-3">
-                            <label for="teamid" class="form-label">Team Id</label>
-                            <input name="teamid" value="{{$team->team_id}}" type="text" class="form-control" placeholder="#####" id="teamid">
+                            <label for="teamname" class="form-label">Team name</label>
+                            <select name="teamname" id="teamname" class="form-select" aria-label="Default select example">
+                                <option selected></option>
+                                <?php $names = App\Models\Teamname::all(); ?> 
+                                @foreach ($names as $name)
+                                <option {{@$team->team_name === @$name->team_name ? 'selected' : '' }} value="{{$name->team_name}}">{{$name->team_name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="col-md-3">
                             <label for="date" class="form-label">Joining Date</label>

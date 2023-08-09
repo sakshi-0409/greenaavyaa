@@ -12,8 +12,15 @@
                     <form id="form" method="post" enctype="multipart/form-data" class="row g-3">
                         @csrf
                         <div class="col-md-3">
-                            <label for="teamid" class="form-label">Team Id</label>
-                            <input name="teamid" type="text" class="form-control" placeholder="#####" id="teamid">
+                            <label for="teamname" class="form-label">Team Name</label>
+                            <select name="teamname" id="teamname" class="form-select" aria-label="Default select example">
+                                <option selected></option>
+                                <?php $names = App\Models\Teamname::all(); ?> 
+                                @foreach ($names as $name)
+                                <option value="{{$name->team_name}}">{{$name->team_name}}</option>
+                                @endforeach
+                              
+                            </select>
                         </div>
                         <div class="col-md-3">
                             <label for="date" class="form-label">Joining Date</label>
@@ -183,9 +190,8 @@
 
         $("#form").validate({
             rules: {
-                teamid: {
+                teamname: {
                     required: true
-                    , minlength: 2
                 }
                 , date: {
                     required: true
@@ -255,7 +261,7 @@
                 }
             }
             , messages: {
-                teamid: {
+                teamname: {
                     required: "Please enter team id"
                 }
                 , date: {

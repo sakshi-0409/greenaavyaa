@@ -19,43 +19,28 @@
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                       Team Name</th>
+                                       Team Id</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Name</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Contact</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Department</th>
-                                    
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Team Name</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Action</th>
+                                   
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $teams = App\Models\Team::all() ?>
+                                <?php $teams = App\Models\Teamname::all() ?>
                                 @foreach ($teams as $team)
 
                                 <tr>
 
                                     <td>
+                                        <p class="text-xs font-weight-bold mb-0">{{$team->team_id}}</p>
+                                    </td>
+                                    <td>
                                         <p class="text-xs font-weight-bold mb-0">{{$team->team_name}}</p>
                                     </td>
-                                    <td>
-                                        <p class="text-xs font-weight-bold mb-0">{{$team->name}}</p>
-                                        <p class="text-xs font-weight-bold mb-0">{{$team->designation}}</p>
-                                    </td>
-                                    
-                                    <td>
-                                        <p class="text-xs font-weight-bold mb-0">{{$team->mobile}}</p>
-                                        <p class="text-xs font-weight-bold mb-0">{{$team->email}}</p>
-                                    </td>
-                                    <td>
-                                        <p class="text-xs font-weight-bold mb-0">{{$team->department}}</p>
-                                    </td>
-
-                                    
                                     <td class="align-middle text-center text-sm">
-                                        <span class="cursor-pointer badge badge-sm bg-gradient-success edit" data-id="{{$team->id}}"><a href="{{url('edit-team')}}/{{$team->id}}">Edit</a></span>
+                                        <span class="cursor-pointer badge badge-sm bg-gradient-success edit" data-id="{{$team->id}}"><a href="{{url('edit-teamname')}}/{{$team->id}}">Edit</a></span>
                                         <span class="cursor-pointer badge badge-sm bg-gradient-danger delete" data-id="{{$team->id}}">Delete</span>
                                     </td>
 
@@ -83,7 +68,7 @@
             e.preventDefault();
             var row = $(this).closest('tr');
             var id = $(this).data('id');
-            var url = `{{ url('/deleteteam') }}/?id=${id}`;
+            var url = `{{ url('/deleteteam-name') }}/?id=${id}`;
 
             console.log(url);
             $.ajax({

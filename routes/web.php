@@ -74,10 +74,15 @@ Route::get('/edit-team/{id}', [teamController::class,'editteam'])->name('edittea
 Route::post('/update-team/{id}', [teamController::class,'updateteam'])->name('updateteam');
 Route::get('/deleteteam', [teamController::class,'deleteteam'])->name('deleteteam');
 
-});
+Route::get('/teams', [teamController::class,'teams'])->name('teams');
+Route::get('/create-teamname', [teamController::class,'create_teamname'])->name('create-teamname');
+Route::post('/create-teamname', [teamController::class,'create_team_name'])->name('create-team-name');
+Route::get('/edit-teamname/{id}', [teamController::class,'editteam_name'])->name('editteam-name');
+Route::post('/update-teamname/{id}', [teamController::class,'updateteam_name'])->name('update-teamname');
+Route::get('/deleteteam-name', [teamController::class,'deleteteam_name'])->name('deleteteam-name');
 
-Route::get('/user-profile', [adminController::class,'user_management'])->name('profile-static');
-Route::get('/virtual-reality', [adminController::class,'user_management'])->name('virtual-reality');
+
+});
 
 Route::get('/dashboard', function () {
     return view('pages/dashboard');
