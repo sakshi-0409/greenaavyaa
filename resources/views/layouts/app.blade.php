@@ -33,7 +33,7 @@
 <body class="{{ $class ?? '' }}">
 
     @guest
-    @include('layouts.navbars.auth.sidenav')
+    @include('layouts.navbars.guest.navbar')
     <main class="main-content border-radius-lg">
         @yield('content')
     </main>
@@ -41,6 +41,11 @@
     @endguest
 
     @auth
+    @include('layouts.navbars.auth.sidenav')
+    <main class="main-content border-radius-lg">
+        @yield('content')
+    </main>
+    @include('components.fixed-plugin')
         @if (in_array(request()->route()->getName(), ['sign-in-static', 'sign-up-static', 'login', 'register', 'recover-password', 'rtl', 'virtual-reality']))
             @yield('content')
         @else

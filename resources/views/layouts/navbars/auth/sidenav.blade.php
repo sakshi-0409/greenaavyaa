@@ -6,7 +6,7 @@
         <a class="navbar-brand m-0" href="{{ route('home') }}"
             target="_blank">
             <img src="{{asset('images/logo-dark.png')}}" class="navbar-brand-img h-100" alt="main_logo">
-            <br><span class="ms-1 font-weight-bold">Greenaavyaa - Admin</span>
+            <br><span class="ms-1 font-weight-bold">Greenaavyaa - {{@Auth::user()->name}}</span>
         </a>
     </div>
     <hr class="horizontal dark mt-0">
@@ -139,7 +139,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="{{ route('sign-up-static') }}">
+                <a class="nav-link " href="{{ route('register') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-collection text-info text-sm opacity-10"></i>

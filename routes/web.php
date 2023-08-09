@@ -7,6 +7,7 @@ use App\Http\Controllers\brokersController;
 use App\Http\Controllers\propertyController;
 use App\Http\Controllers\contactController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,14 +31,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('profile');
 
-Route::get('/billing', [adminController::class,'billing']);
-Route::get('/home', [adminController::class,'admin_dashboard'])->name('home');
-Route::get('/admin-profile', [adminController::class,'admin_profile'])->name('adminprofile');
-Route::get('/rtl', [adminController::class,'rtl'])->name('rtl');
-Route::get('/sign-in', [adminController::class,'sign_in'])->name('sign-in-static');
-Route::get('/sign-up', [adminController::class,'sign_up'])->name('sign-up-static');
 
 
+Route::group(['middleware'=>'admin'],function(){
 
 Route::get('/properties', [propertyController::class,'properties'])->name('properties');
 Route::get('/createproperty', [propertyController::class,'createproperty'])->name('createproperty');
@@ -70,13 +66,15 @@ Route::get('/editcontact/{id}', [contactController::class,'edit_contact'])->name
 Route::post('/update-contact/{id}', [contactController::class,'update_contact'])->name('updatecontact');
 Route::get('/deletecontact', [contactController::class,'delete_contact'])->name('deletecontact');
 
+});
 
 Route::get('/user-profile', [adminController::class,'user_management'])->name('profile-static');
 Route::get('/virtual-reality', [adminController::class,'user_management'])->name('virtual-reality');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('home');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
